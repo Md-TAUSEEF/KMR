@@ -21,13 +21,21 @@ import {
 } from "lucide-react";
 
 
-import waterproofing from "../../assets/products/waterproofing.png";
-import adhesive from "../../assets/products/adhesive.png";
-import coating from "../../assets/products/coating.png";
+import BUILDINGCONSTRUCTION from "../../assets/products/sector/BUILDINGCONSTRUCTION.png";
+import OILGAS from "../../assets/products/sector/OILGAS.png";
+import METRORAIL from "../../assets/products/sector/METRORAIL.png";
+import ROADSHIGHWAYS from "../../assets/products/sector/ROADSHIGHWAYS.png";
+import BRIDGES from "../../assets/products/sector/BRIDGES.png";
+import POWERENERGY1 from "../../assets/products/sector/POWERENERGY1.png";
+import WATERTREATMENT from "../../assets/products/sector/WATERTREATMENT.png";
+import INDUSTRIALPLANTS from "../../assets/products/sector/INDUSTRIALPLANTS.png";
+import HEALTHCARE from "../../assets/products/sector/HEALTHCARE.png";
+import HOTELSRESORTS from "../../assets/products/sector/HOTELSRESORTS.png";
 
-
-
-
+import SHOPPINGMALLS from "../../assets/products/sector/SHOPPINGMALLS.png";
+import EDUCATIONALINSTITUTIONS from "../../assets/products/sector/EDUCATIONALINSTITUTIONS.png";
+import adhesive from "../../assets/products/adhesive.png"
+import coating from "../../assets/products/coating.png"
 
 export const industryData = [
   // ======================================================
@@ -49,7 +57,7 @@ export const industryData = [
     heroDescription:
       "Advanced construction chemical systems engineered for superior strength, waterproofing, structural repair and long-term durability across every stage of modern building construction.",
 
-    heroImage: waterproofing,
+    heroImage: BUILDINGCONSTRUCTION,
 
     accent: "#2563eb",
 
@@ -168,7 +176,7 @@ export const industryData = [
     heroDescription:
       "High-performance repair systems, corrosion protection and industrial flooring solutions designed for demanding oil and gas environments.",
 
-    heroImage: coating,
+    heroImage: OILGAS,
 
     accent: "#ef4444",
 
@@ -286,7 +294,7 @@ export const industryData = [
     heroDescription:
       "High-performance waterproofing, repair mortars and protective systems designed for modern railway and metro projects.",
 
-    heroImage: coating,
+    heroImage: METRORAIL,
 
     accent: "#7c3aed",
 
@@ -401,7 +409,7 @@ export const industryData = [
     heroDescription:
       "High-strength repair systems, expansion joint solutions and protective coatings for transportation infrastructure.",
 
-    heroImage: coating,
+    heroImage: ROADSHIGHWAYS,
 
     accent: "#f97316",
 
@@ -450,7 +458,7 @@ export const industryData = [
         description:
           "Repair mortars and protective systems for national highways.",
 
-        image: "/products/product-1.webp",
+        image: ROADSHIGHWAYS,
 
         icon: Truck,
 
@@ -510,7 +518,7 @@ export const industryData = [
     heroDescription:
       "Reliable construction chemical technologies for bridge decks, piers, girders and heavy civil structures.",
 
-    heroImage: coating,
+    heroImage: BRIDGES,
 
     accent: "#06b6d4",
 
@@ -620,7 +628,7 @@ export const industryData = [
     heroDescription:
       "Advanced repair systems, protective coatings and waterproofing solutions for power plants, substations and renewable energy projects.",
 
-    heroImage: coating,
+    heroImage: POWERENERGY1,
 
     accent: "#facc15",
 
@@ -731,7 +739,7 @@ export const industryData = [
     heroDescription:
       "High-performance waterproofing, crack repair and protective systems for water treatment plants, reservoirs and sewage infrastructure.",
 
-    heroImage: coating,
+    heroImage: WATERTREATMENT,
 
     accent: "#0ea5e9",
 
@@ -841,7 +849,7 @@ export const industryData = [
     heroDescription:
       "Advanced construction chemical technologies for factories, warehouses and manufacturing facilities.",
 
-    heroImage: coating,
+    heroImage: INDUSTRIALPLANTS,
 
     accent: "#64748b",
 
@@ -954,7 +962,7 @@ export const industryData = [
     heroDescription:
       "Premium flooring, waterproofing and protective systems designed for hospitals, laboratories and modern healthcare buildings.",
 
-    heroImage: coating,
+    heroImage: HEALTHCARE,
 
     accent: "#22c55e",
 
@@ -1049,7 +1057,7 @@ export const industryData = [
     heroDescription:
       "Elegant flooring, waterproofing and finishing systems for hotels, resorts and commercial hospitality spaces.",
 
-    heroImage: coating,
+    heroImage: HOTELSRESORTS,
 
     accent: "#ec4899",
 
@@ -1141,7 +1149,7 @@ export const industryData = [
     heroDescription:
       "Construction chemical technologies for shopping malls, retail outlets and entertainment complexes.",
 
-    heroImage: coating,
+    heroImage: SHOPPINGMALLS,
 
     accent: "#8b5cf6",
 
@@ -1232,7 +1240,7 @@ export const industryData = [
     heroDescription:
       "Innovative construction chemical systems for educational campuses and institutional buildings.",
 
-    heroImage: coating,
+    heroImage: EDUCATIONALINSTITUTIONS,
 
     accent: "#14b8a6",
 
