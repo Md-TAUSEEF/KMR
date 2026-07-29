@@ -7,14 +7,30 @@ import {
   Package,
   ShieldCheck,
   Sparkles,
+  
 } from "lucide-react";
 
+import { Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 
 import { productData } from "./productData";
 
 const ProductDetails = () => {
+
+  const featureColors = [
+  "from-blue-500 to-cyan-500",
+  "from-emerald-500 to-green-600",
+  "from-orange-500 to-red-500",
+  "from-violet-500 to-purple-600",
+];
+
+  const numberColors = [
+  "from-blue-500 to-cyan-500",
+  "from-emerald-500 to-green-600",
+  "from-orange-500 to-red-500",
+  "from-violet-500 to-purple-600",
+];
   const { categorySlug, productSlug } = useParams();
 
   // ============================================================
@@ -127,12 +143,12 @@ const ProductDetails = () => {
             transition={{ duration: 0.7 }}
             className="overflow-hidden rounded-[32px] border border-white bg-white shadow-[0_20px_70px_rgba(15,23,42,0.10)]"
           >
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="grid items-center lg:grid-cols-[0.9fr_1.1fr] min-h-[520px]">
               {/* ======================================================
                   IMAGE
               ====================================================== */}
 
-              <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-sky-50 p-8 sm:min-h-[500px] lg:min-h-[600px]">
+              <div className="relative flex h-full min-h-[420px] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-sky-50 p-8 lg:min-h-[480px]">
                 {/* Glow */}
 
                 <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-3xl" />
@@ -143,9 +159,22 @@ const ProductDetails = () => {
 
                 {/* Product Number */}
 
-                <div className="absolute left-7 top-7 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-sky-500 text-sm font-black text-white shadow-[0_10px_30px_rgba(37,99,235,0.30)]">
-                  {String(product.id).padStart(2, "0")}
-                </div>
+                {/* Top Left Controls */}
+<div className="absolute left-7 top-7 z-20 flex items-center gap-3">
+  {/* Product Number */}
+  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-sky-500 text-sm font-black text-white shadow-[0_10px_30px_rgba(37,99,235,0.30)]">
+    {String(product.id).padStart(2, "0")}
+  </div>
+
+  {/* Back To Home */}
+  <Link
+    to="/"
+    className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/70 bg-white/95 px-5 text-sm font-bold text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.10)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600 hover:text-white hover:shadow-[0_15px_35px_rgba(37,99,235,0.25)]"
+  >
+    <Home className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+    <span className="hidden sm:block">Back To Home</span>
+  </Link>
+</div>
 
                 {/* Product Image */}
 
@@ -181,7 +210,7 @@ const ProductDetails = () => {
                   CONTENT
               ====================================================== */}
 
-              <div className="relative px-7 py-10 sm:px-10 lg:px-14 lg:py-14">
+              <div className="relative px-7 py-10 sm:px-10 lg:px-12 lg:py-10">
                 {/* Badge */}
 
                 <div className="inline-flex items-center gap-2 rounded-full border-2 border-blue-400 bg-white px-5 py-2 shadow-[0_5px_20px_rgba(37,99,235,0.08)]">
@@ -194,7 +223,8 @@ const ProductDetails = () => {
 
                 {/* Title */}
 
-                <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-[#102944] sm:text-5xl lg:text-6xl">
+                <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-[#102944] sm:text-5xl lg:text-[54px]
+leading-[1.05]">
                   {product.name}
                 </h1>
 
@@ -210,7 +240,7 @@ const ProductDetails = () => {
 
                 {/* Description */}
 
-                <p className="mt-7 text-base leading-8 text-slate-600 sm:text-lg">
+                <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
                   {product.description}
                 </p>
 
@@ -218,30 +248,34 @@ const ProductDetails = () => {
                     FEATURES
                 ====================================================== */}
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    "High Performance",
-                    "Excellent Durability",
-                    "Professional Quality",
-                    "Long Service Life",
-                  ].map((feature) => (
-                    <div key={feature} className="flex items-center gap-3">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-sky-500 shadow-sm">
-                        <CheckCircle2 className="h-4 w-4 text-white" />
-                      </div>
+               <div className="mt-6 grid gap-4 sm:grid-cols-2">
+  {[
+    "High Performance",
+    "Excellent Durability",
+    "Professional Quality",
+    "Long Service Life",
+  ].map((feature, index) => (
+    <div key={feature} className="flex items-center gap-3">
+      <div
+        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${
+          featureColors[index % featureColors.length]
+        } shadow-md`}
+      >
+        <CheckCircle2 className="h-4 w-4 text-white" />
+      </div>
 
-                      <span className="text-sm font-bold text-[#102944] sm:text-base">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+      <span className="text-sm font-bold text-[#102944] sm:text-base">
+        {feature}
+      </span>
+    </div>
+  ))}
+</div>
 
                 {/* ======================================================
                     PRODUCT INFO
                 ====================================================== */}
 
-                <div className="mt-9 grid gap-4 sm:grid-cols-2">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
                     <div className="flex items-center gap-3">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
@@ -283,36 +317,35 @@ const ProductDetails = () => {
                     BUTTONS
                 ====================================================== */}
 
-                <div className="mt-9 flex flex-wrap gap-4">
-  {/* MORE PRODUCTS */}
-  <Link
-    to={`/products/${category.slug}`}
-    className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(37,99,235,0.35)]"
-  >
-    More Products
+                <div className="mt-10 flex flex-wrap gap-4">
+                  {/* MORE PRODUCTS */}
+                  <Link
+                    to={`/products/${category.slug}`}
+                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(37,99,235,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(37,99,235,0.35)]"
+                  >
+                    More Products
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
 
-    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-  </Link>
+                  {/* CONTACT US */}
+                  <Link
+                    to="/contact"
+                    className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(16,185,129,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(16,185,129,0.35)]"
+                  >
+                    Contact Us
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
 
-  {/* CONTACT US */}
-  <Link
-    to="/contact"
-    className="group inline-flex items-center gap-3 rounded-full border-2 border-blue-400 bg-white px-7 py-3.5 text-sm font-bold text-blue-600 shadow-[0_8px_25px_rgba(37,99,235,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-[0_12px_30px_rgba(37,99,235,0.20)]"
-  >
-    Contact Us
+                  {/* ALL CATEGORIES */}
+                  <Link
+                    to="/products"
+                    className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-violet-500 to-purple-600 px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(139,92,246,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(139,92,246,0.35)]">
+                    <ArrowLeft className="h-4 w-4" />
+                    All Categories
+                  </Link>
+                </div>
 
-    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-  </Link>
 
-  {/* ALL CATEGORIES */}
-  <Link
-    to="/products"
-    className="inline-flex items-center gap-3 rounded-full border-2 border-blue-200 bg-blue-50 px-7 py-3.5 text-sm font-bold text-blue-600 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-100"
-  >
-    <ArrowLeft className="h-4 w-4" />
-    All Categories
-  </Link>
-</div>
               </div>
             </div>
           </motion.div>
@@ -364,9 +397,13 @@ const ProductDetails = () => {
                       className="h-full w-full object-contain p-5 transition-transform duration-700 group-hover:scale-110"
                     />
 
-                    <div className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white/95 text-xs font-black text-blue-600 shadow-md">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
+                    <div
+  className={`absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${
+    numberColors[index % numberColors.length]
+  } text-xs font-black text-white shadow-lg`}
+>
+  {String(index + 1).padStart(2, "0")}
+</div>
                   </div>
 
                   <div className="p-5">

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -94,7 +94,7 @@ export default Products;
 // FEATURED PRODUCT HERO
 // ==================================================================
 
-const FeaturedProductHero = ({ product, categoryName }) => {
+const FeaturedProductHero = ({ product, categoryName, cardGradient }) => {
   if (!product) {
     return null;
   }
@@ -270,7 +270,7 @@ const FeaturedProductHero = ({ product, categoryName }) => {
               duration: 0.8,
               delay: 0.1,
             }}
-            className="relative overflow-hidden rounded-[30px] border border-white/90 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.10)]"
+            className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]"
           >
             {/* ==================================================
                 BACKGROUND GLOW
@@ -286,15 +286,22 @@ const FeaturedProductHero = ({ product, categoryName }) => {
                 FEATURE GRID
             ================================================== */}
 
-            <div className="relative grid items-center lg:grid-cols-[0.95fr_1.05fr]">
+           <div className="grid items-center lg:grid-cols-[0.9fr_1.1fr] min-h-[580px]">
               {/* =================================================
                   LEFT — PRODUCT IMAGE
               ================================================= */}
 
-              <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden px-8 py-12 md:min-h-[500px] md:px-14 lg:min-h-[530px]">
+              <div className="relative flex items-center justify-center overflow-hidden px-8 py-8">
                 {/* LARGE BACKGROUND CIRCLE */}
 
-                <div className="absolute left-1/2 top-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-sky-100 via-white to-blue-100 md:h-[400px] md:w-[400px]" />
+                <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px]
+-rounded-full
+bg-gradient-to-br
+from-blue-100
+via-sky-50
+to-white
+-translate-x-1/2
+-translate-y-1/2"/>
 
                 {/* IMAGE GLOW */}
 
@@ -329,7 +336,17 @@ const FeaturedProductHero = ({ product, categoryName }) => {
                     duration: 0.8,
                     delay: 0.25,
                   }}
-                  className="relative z-10 max-h-[360px] w-[280px] object-contain drop-shadow-[0_25px_25px_rgba(15,23,42,0.18)] transition-transform duration-700 hover:scale-105 md:w-[340px]"
+                 className="
+relative
+z-20
+w-[430px]
+max-w-full
+object-contain
+drop-shadow-[0_35px_35px_rgba(0,0,0,.18)]
+transition
+duration-700
+group-hover:scale-105
+"
                 />
 
                 {/* =================================================
@@ -534,6 +551,7 @@ const CategoryProducts = ({ selectedCategory }) => {
       <FeaturedProductHero
         product={featuredProduct}
         categoryName={categoryName}
+        cardGradient={selectedCategory.color}
       />
 
       {/* ============================================================
@@ -673,6 +691,11 @@ const AllProducts = () => {
     0,
   );
 
+  const [showAllCategories, setShowAllCategories] = useState(false);
+  const visibleCategories = showAllCategories
+  ? productData
+  : productData.slice(0, 2);
+
   // ============================================================
   // FIRST PRODUCT FOR FEATURED HERO
   // ============================================================
@@ -707,6 +730,7 @@ const AllProducts = () => {
       <FeaturedProductHero
         product={featuredProduct}
         categoryName={featuredCategoryName}
+        cardGradient={featuredCategory.color}
       />
 
       {/* ============================================================
@@ -730,103 +754,64 @@ const AllProducts = () => {
       ============================================================ */}
 
       <section className="relative z-10 pb-20 pt-6 sm:pb-24 lg:pb-28">
-        <div className="mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20 lg:space-y-28">
-            {productData.map((category, categoryIndex) => {
-              const Icon = category.icon;
+  <div className="mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
 
-              const categoryName = category.title || category.category;
+    {/* Categories */}
+   <div className="space-y-20 lg:space-y-28">
+  {visibleCategories.map((category, categoryIndex) => (
+    <section key={category.slug}>
+      {/* Category Heading */}
+      <div className="mb-8 flex items-center justify-between">
+        <h2 className="text-3xl font-bold text-[#102944]">
+          {category.title || category.category}
+        </h2>
 
-              return (
-                <motion.div
-                  key={category.id}
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.08,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                  }}
-                >
-                  {/* ==================================================
-                        CATEGORY HEADER
-                    ================================================== */}
+        <Link
+          to={`/products/${category.slug}`}
+          className="text-blue-600 font-semibold hover:underline"
+        >
+          View All
+        </Link>
+      </div>
 
-                  <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                    <div className="flex items-start gap-4">
-                      {/* ICON */}
+      {/* Products */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {category.products.map((product, index) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            index={index}
+            category={category.title || category.category}
+            categorySlug={category.slug}
+          />
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
 
-                      <div
-                        className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${category.color} shadow-lg`}
-                      >
-                        <Icon className="h-7 w-7 text-white" />
-                      </div>
+    {/* 👇 YAHAN ADD KARNA HAI */}
+    <div className="mt-14 flex justify-center">
+      <button
+        onClick={() => setShowAllCategories(!showAllCategories)}
+        className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      >
+        {showAllCategories
+          ? "Show Less Categories"
+          : "View All Categories"}
 
-                      {/* TEXT */}
+        <ArrowRight
+          className={`h-5 w-5 transition-transform duration-300 ${
+            showAllCategories
+              ? "rotate-90"
+              : "group-hover:translate-x-1"
+          }`}
+        />
+      </button>
+    </div>
 
-                      <div>
-                        <div className="mb-1 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-500">
-                          Product Category
-                        </div>
-
-                        <h2 className="text-2xl font-extrabold text-[#102944] sm:text-3xl">
-                          {categoryName}
-                        </h2>
-
-                        <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">
-                          {category.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* CATEGORY VIEW ALL */}
-
-                    <Link
-                      to={`/products/${category.slug}`}
-                      className="group inline-flex shrink-0 items-center gap-2 self-start rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-sm font-bold text-blue-600 transition-all duration-300 hover:bg-blue-600 hover:text-white lg:self-end"
-                    >
-                      View All Products
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-
-                  {/* ==================================================
-                        CATEGORY PRODUCTS
-                    ================================================== */}
-
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                    {(category.products || []).map((product, productIndex) => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        index={productIndex}
-                        category={categoryName}
-                        categorySlug={category.slug}
-                      />
-                    ))}
-                  </div>
-
-                  {/* ==================================================
-                        DIVIDER
-                    ================================================== */}
-
-                  {categoryIndex < productData.length - 1 && (
-                    <div className="mt-16 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+  </div>
+</section>
     </main>
   );
 };
@@ -836,6 +821,20 @@ const AllProducts = () => {
 // ==================================================================
 
 const ProductCard = ({ product, index, category, categorySlug }) => {
+
+
+
+  const cardColors = [
+  "from-orange-500 to-red-500",
+  "from-emerald-500 to-green-600",
+  "from-sky-500 to-blue-600",
+  "from-violet-500 to-purple-600",
+  "from-amber-500 to-orange-500",
+];
+
+const cardGradient = cardColors[index % cardColors.length];
+
+  
   return (
     <motion.div
       initial={{
@@ -861,7 +860,9 @@ const ProductCard = ({ product, index, category, categorySlug }) => {
             TOP BLUE LINE
         ======================================================== */}
 
-        <div className="absolute inset-x-0 top-0 z-20 h-[3px] bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500 opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+        <div
+          className={`absolute inset-x-0 top-0 z-20 h-[3px] bg-gradient-to-r ${cardGradient} opacity-80 transition-all duration-300 group-hover:opacity-100`}
+        />
 
         {/* ========================================================
             IMAGE
@@ -870,24 +871,26 @@ const ProductCard = ({ product, index, category, categorySlug }) => {
         <div className="relative h-56 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/50">
           {/* BACKGROUND CIRCLE */}
 
-          <div className="absolute left-1/2 top-1/2 h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-50 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-100/70" />
-
           {/* IMAGE GLOW */}
 
           <div className="absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-200/20 blur-2xl transition-all duration-500 group-hover:bg-blue-300/30" />
 
           {/* PRODUCT NUMBER */}
 
-          <div className="absolute left-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-sky-500 text-sm font-extrabold text-white shadow-[0_7px_18px_rgba(37,99,235,0.30)]">
+          <div
+            className={`absolute left-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${cardGradient} text-sm font-extrabold text-white shadow-lg`}
+          >
             {String(index + 1).padStart(2, "0")}
           </div>
-
-          {/* PRODUCT IMAGE */}
 
           <img
             src={product.image}
             alt={product.name || product.title}
-            className="relative z-10 mx-auto h-full w-[190px] object-contain px-2 py-4 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2"
+            className="
+            h-full w-full object-cover
+            transition duration-700
+            group-hover:scale-110
+            "
             loading="lazy"
           />
 
@@ -927,7 +930,9 @@ const ProductCard = ({ product, index, category, categorySlug }) => {
               Product Details
             </span>
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-all duration-300 group-hover/details:bg-blue-600 group-hover/details:text-white">
+           <div
+  className={`flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${cardGradient} text-white shadow-md transition-all duration-300 group-hover/details:scale-110`}
+>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/details:translate-x-0.5" />
             </div>
           </Link>
