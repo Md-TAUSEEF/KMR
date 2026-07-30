@@ -116,7 +116,7 @@ export default function About() {
 
     {
       icon: Users,
-      value: "20+",
+      value: "5+",
       title: "Years of",
       subtitle: "Experience",
     },
@@ -262,7 +262,7 @@ export default function About() {
 
           {/* DESCRIPTION */}
 
-         <p className="mx-auto mt-5 max-w-3xl text-[15px] leading-7 text-slate-600 sm:text-base md:text-lg md:leading-8">
+          <p className="mx-auto mt-5 max-w-3xl text-[15px] leading-7 text-slate-600 sm:text-base md:text-lg md:leading-8">
             KMR Conchem is a trusted manufacturer of high-performance
             construction chemicals delivering strength, durability and
             long-lasting protection for every structure.
@@ -274,204 +274,198 @@ export default function About() {
         ===================================================== */}
 
         <div className="mt-12 md:mt-16"></div>
-          {/* ==================================================
+        {/* ==================================================
               VIDEO + CONTENT GRID
           ================================================== */}
 
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-20">
-            {/* =========================================================
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-20">
+          {/* =========================================================
                 LEFT — FACTORY VIDEO
             ========================================================= */}
 
-            <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8 }}
-              className="relative min-w-0"
-            >
-              {/* =====================================================
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="relative min-w-0"
+          >
+            {/* =====================================================
                   MAIN VIDEO CARD
               ====================================================== */}
 
-              <div className="relative overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
-                <div className="relative overflow-hidden rounded-[22px]">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="block h-[360px] w-full object-cover sm:h-[420px] lg:h-[450px] xl:h-[470px]"
-                  >
-                    <source src={factoryVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+            <div className="relative overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
+              <div className="relative overflow-hidden rounded-[22px]">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="block h-[360px] w-full object-cover sm:h-[420px] lg:h-[450px] xl:h-[470px]"
+                >
+                  <source src={factoryVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-                  {/* =================================================
+                {/* =================================================
                       VIDEO OVERLAY
                   ================================================== */}
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#102944]/35 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#102944]/35 via-transparent to-transparent" />
 
-                  {/* =================================================
+                {/* =================================================
                       TOP BLUE GLOW
                   ================================================== */}
 
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-sky-400/10 to-transparent" />
-                </div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-sky-400/10 to-transparent" />
               </div>
+            </div>
 
-              {/* =====================================================
+            {/* =====================================================
                   FLOATING QUALITY CARD
               ====================================================== */}
 
-              <div className="absolute -left-4 top-10 z-20 hidden w-[155px] rounded-[22px] border border-white/80 bg-white/95 p-5 text-center shadow-[0_15px_45px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:block">
-                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-sky-50">
-                  <ShieldCheck
-                    size={32}
-                    strokeWidth={1.6}
-                    className="text-sky-500"
-                  />
-                </div>
-
-                <p className="text-sm font-extrabold leading-5 text-[#102944]">
-                  Trusted
-                  <br />
-                  Quality
-                </p>
+            <div className="absolute -left-4 top-10 z-20 hidden w-[155px] rounded-[22px] border border-white/80 bg-white/95 p-5 text-center shadow-[0_15px_45px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:block">
+              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-sky-50">
+                <ShieldCheck
+                  size={32}
+                  strokeWidth={1.6}
+                  className="text-sky-500"
+                />
               </div>
 
-              {/* =====================================================
+              <p className="text-sm font-extrabold leading-5 text-[#102944]">
+                Trusted
+                <br />
+                Quality
+              </p>
+            </div>
+
+            {/* =====================================================
                   FLOATING EXPERIENCE CARD
               ====================================================== */}
 
-              <div className="absolute -right-4 bottom-10 z-20 hidden w-[165px] rounded-[22px] border border-white/80 bg-white/95 p-5 text-center shadow-[0_15px_45px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:block">
-                <div className="text-3xl font-black text-sky-500">20+</div>
+            <div className="absolute -right-4 bottom-10 z-20 hidden w-[165px] rounded-[22px] border border-white/80 bg-white/95 p-5 text-center shadow-[0_15px_45px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:block">
+              <div className="text-3xl font-black text-sky-500">5+</div>
 
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[#102944]">
-                  Years Experience
-                </p>
-              </div>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider text-[#102944]">
+                Years Experience
+              </p>
+            </div>
 
-              {/* =====================================================
+            {/* =====================================================
                   BOTTOM VIDEO BADGE
               ====================================================== */}
 
-              <div className="absolute bottom-5 left-5 z-20 inline-flex max-w-[calc(100%-40px)] items-center gap-2 rounded-full border border-white/20 bg-[#102944]/85 px-5 py-3 text-white shadow-xl backdrop-blur-xl">
-                <Factory size={18} className="shrink-0 text-sky-300" />
+            <div className="absolute bottom-5 left-5 z-20 inline-flex max-w-[calc(100%-40px)] items-center gap-2 rounded-full border border-white/20 bg-[#102944]/85 px-5 py-3 text-white shadow-xl backdrop-blur-xl">
+              <Factory size={18} className="shrink-0 text-sky-300" />
 
-                <span className="text-sm font-bold">
-                  Advanced Manufacturing
-                </span>
-              </div>
-            </motion.div>
+              <span className="text-sm font-bold">Advanced Manufacturing</span>
+            </div>
+          </motion.div>
 
-            {/* =========================================================
+          {/* =========================================================
                 RIGHT — ABOUT CONTENT
             ========================================================= */}
 
-            <motion.div
-              initial={{ opacity: 0, x: 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8 }}
-              className="relative min-w-0"
-            >
-              {/* =====================================================
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="relative min-w-0"
+          >
+            {/* =====================================================
                   TOP BADGE
               ====================================================== */}
 
-              <div className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-sky-200 bg-white px-5 py-2.5 shadow-[0_8px_25px_rgba(14,165,233,0.08)]">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-50">
-                  <Beaker size={16} strokeWidth={2} className="text-sky-500" />
-                </div>
-
-                <span className="text-xs font-extrabold uppercase tracking-[2px] text-sky-600">
-                  Trusted Construction Chemical Manufacturer
-                </span>
+            <div className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-sky-200 bg-white px-5 py-2.5 shadow-[0_8px_25px_rgba(14,165,233,0.08)]">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-50">
+                <Beaker size={16} strokeWidth={2} className="text-sky-500" />
               </div>
 
-              {/* =====================================================
+              <span className="text-xs font-extrabold uppercase tracking-[2px] text-sky-600">
+                Trusted Construction Chemical Manufacturer
+              </span>
+            </div>
+
+            {/* =====================================================
                   MAIN HEADING
               ====================================================== */}
 
-              <h3 className="max-w-xl text-3xl font-extrabold leading-[1.1] tracking-tight text-[#102944] sm:text-4xl lg:text-5xl">
-                Delivering Innovative
-                <span className="block text-sky-500">Solutions For Modern</span>
-                Infrastructure
-              </h3>
+            <h3 className="max-w-xl text-3xl font-extrabold leading-[1.1] tracking-tight text-[#102944] sm:text-4xl lg:text-5xl">
+              Delivering Innovative
+              <span className="block text-sky-500">Solutions For Modern</span>
+              Infrastructure
+            </h3>
 
-              {/* =====================================================
+            {/* =====================================================
                   SMALL DIVIDER
               ====================================================== */}
 
-              <div className="mt-6 flex items-center gap-2">
-                <span className="h-[2px] w-16 bg-sky-300" />
+            <div className="mt-6 flex items-center gap-2">
+              <span className="h-[2px] w-16 bg-sky-300" />
 
-                <span className="h-2 w-2 rounded-full bg-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.5)]" />
+              <span className="h-2 w-2 rounded-full bg-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.5)]" />
 
-                <span className="h-[2px] w-8 bg-sky-200" />
-              </div>
+              <span className="h-[2px] w-8 bg-sky-200" />
+            </div>
 
-              {/* =====================================================
+            {/* =====================================================
                   FIRST DESCRIPTION
               ====================================================== */}
 
-              <p className="mt-7 max-w-xl text-[15px] leading-7 text-slate-600 md:text-lg">
-                KMR Conchem Pvt. Ltd. is committed to manufacturing premium
-                construction chemical products that improve the strength,
-                durability and performance of buildings, bridges, industrial
-                facilities and infrastructure projects.
-              </p>
+            <p className="mt-7 max-w-xl text-[15px] leading-7 text-slate-600 md:text-lg">
+              KMR Conchem Pvt. Ltd. is committed to manufacturing premium
+              construction chemical products that improve the strength,
+              durability and performance of buildings, bridges, industrial
+              facilities and infrastructure projects.
+            </p>
 
-              {/* =====================================================
+            {/* =====================================================
                   SECOND DESCRIPTION
               ====================================================== */}
 
-              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-slate-600 md:text-lg">
-                Our advanced manufacturing process, strict quality control and
-                customer-focused approach enable us to provide reliable
-                waterproofing, repair, flooring and protection systems that
-                perform even in the most demanding environments.
-              </p>
+            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-slate-600 md:text-lg">
+              Our advanced manufacturing process, strict quality control and
+              customer-focused approach enable us to provide reliable
+              waterproofing, repair, flooring and protection systems that
+              perform even in the most demanding environments.
+            </p>
 
-              {/* =====================================================
+            {/* =====================================================
                   FEATURE LIST
               ====================================================== */}
-              <div className="mt-9 flex flex-wrap gap-4">
-                {/* =================================================
+            <div className="mt-9 flex flex-wrap gap-4">
+              {/* =================================================
                     EXPLORE PRODUCTS
                 ================================================== */}
 
-                <button className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(14,165,233,0.35)]">
-                  Explore Products
-                  <ArrowRight
-                    size={19}
-                    strokeWidth={2.5}
-                    className="transition-transform duration-300 group-hover:translate-x-1.5"
-                  />
-                </button>
+              <button className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(14,165,233,0.35)]">
+                Explore Products
+                <ArrowRight
+                  size={19}
+                  strokeWidth={2.5}
+                  className="transition-transform duration-300 group-hover:translate-x-1.5"
+                />
+              </button>
 
-                {/* =================================================
+              {/* =================================================
                     LEARN MORE
                 ================================================== */}
 
-                <button className="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-sm font-bold text-[#102944] shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-600">
-                  Learn More
-                  <ArrowRight
-                    size={18}
-                    className="text-slate-400 transition-all duration-300"
-                  />
-                </button>
-              </div>
-            </motion.div>
-          </div>
-
-        
-</div>
-               
-      
+              <button className="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-sm font-bold text-[#102944] shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-600">
+                Learn More
+                <ArrowRight
+                  size={18}
+                  className="text-slate-400 transition-all duration-300"
+                />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

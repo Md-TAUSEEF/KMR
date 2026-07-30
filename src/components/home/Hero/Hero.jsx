@@ -10,7 +10,6 @@ import "swiper/css/effect-fade";
 import { heroSlides } from "./heroData";
 import HeroLeft from "./HeroLeft";
 
-
 // ============================================================
 // HERO COMPONENT
 // KMR CONCHEM
@@ -93,13 +92,9 @@ export default function Hero() {
                   DARK OVERLAY
               ==================================================== */}
 
-              <div
-                className="
-                  absolute
-                  inset-0
-                  bg-[#020b16]/55
-                "
-              />
+   <div
+  className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/10"
+/>
 
               {/* ====================================================
                   LEFT CONTENT GRADIENT
@@ -111,11 +106,13 @@ export default function Hero() {
                   inset-y-0
                   left-0
                   w-full
-                  lg:w-[78%]
+                  lg:w-[55%]
+
+from-[#020b16]/92
+via-[#020b16]/45
+to-transparent
                   bg-gradient-to-r
-                  from-[#020b16]/95
-                  via-[#071a2d]/80
-                  to-transparent
+                 
                 "
               />
 
@@ -130,7 +127,7 @@ export default function Hero() {
                   top-0
                   h-52
                   bg-gradient-to-b
-                  from-[#020b16]/85
+                  from-[#020b16]/45
                   to-transparent
                 "
               />
@@ -146,8 +143,8 @@ export default function Hero() {
                   bottom-0
                   h-72
                   bg-gradient-to-t
-                  from-[#020b16]
-                  via-[#020b16]/70
+                  from-[#020b16]/70
+via-[#020b16]/20
                   to-transparent
                 "
               />
@@ -165,8 +162,8 @@ export default function Hero() {
                   h-[300px]
                   w-[300px]
                   rounded-full
-                  bg-cyan-400/10
-                  blur-[120px]
+                  bg-cyan-400/5
+blur-[100px]
                 "
               />
 
@@ -183,7 +180,7 @@ export default function Hero() {
                   h-[380px]
                   w-[380px]
                   rounded-full
-                  bg-blue-600/10
+                 bg-blue-600/5
                   blur-[140px]
                 "
               />
@@ -318,7 +315,7 @@ export default function Hero() {
       ======================================================== */}
 
       <div
-  className="
+        className="
     relative
     z-20
     flex
@@ -326,9 +323,9 @@ export default function Hero() {
     min-h-0
     items-center
   "
->
-    <div
-  className="
+      >
+        <div
+          className="
     mx-auto
     flex
     h-full
@@ -346,9 +343,9 @@ export default function Hero() {
     lg:px-12
     xl:px-16
   "
->
+        >
           <div
-  className="
+            className="
     grid
     w-full
     min-w-0
@@ -358,7 +355,7 @@ export default function Hero() {
     lg:gap-8
     xl:gap-10
   "
->
+          >
             {/* ==================================================
                 LEFT HERO
             ================================================== */}
@@ -368,8 +365,6 @@ export default function Hero() {
               activeSlide={activeSlide}
               heroSlides={heroSlides}
             />
-
-          
           </div>
         </div>
       </div>
@@ -653,8 +648,8 @@ export default function Hero() {
           FLOATING EXPERIENCE BADGE
       ======================================================== */}
 
-     <div
-  className="
+      <div
+        className="
     pointer-events-none
     absolute
     right-32
@@ -664,7 +659,7 @@ export default function Hero() {
     xl:block
     2xl:right-20
   "
->
+      >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

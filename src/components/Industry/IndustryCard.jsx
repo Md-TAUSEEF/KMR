@@ -17,7 +17,6 @@ const IndustryCard = ({ industry, index }) => {
       whileHover={{ y: -10 }}
       className="group h-full"
     >
-
       <Link
         to={`/applications/${industry.slug}`}
         className="
@@ -28,11 +27,9 @@ const IndustryCard = ({ industry, index }) => {
         hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)]
         "
       >
-
         {/* Image */}
 
         <div className="relative h-56 overflow-hidden">
-
           <img
             src={industry.heroImage}
             alt={industry.name}
@@ -43,14 +40,15 @@ const IndustryCard = ({ industry, index }) => {
             "
           />
 
-          <div className="
+          <div
+            className="
           absolute inset-0 
           bg-gradient-to-t 
           from-black/80 
           via-black/30 
           to-transparent
-          "/>
-
+          "
+          />
 
           {/* Icon */}
 
@@ -72,107 +70,89 @@ const IndustryCard = ({ industry, index }) => {
               backgroundColor: industry.iconColor,
             }}
           >
-            <Icon size={30}/>
+            <Icon size={30} />
           </div>
-
 
           {/* Title */}
 
           <div className="absolute bottom-6 left-6 right-6">
-
-            <h3 className="
+            <h3
+              className="
             text-2xl
             font-extrabold
             tracking-tight
             text-white
-            ">
+            "
+            >
               {industry.name}
             </h3>
-
           </div>
-
         </div>
-
-
 
         {/* Content */}
 
         <div className="flex min-h-[220px] flex-col p-7">
-
-
-          <p className="
+          <p
+            className="
           flex-1
           leading-7
           text-slate-600
-          ">
+          "
+          >
             {industry.shortDescription}
           </p>
-
-
 
           {/* Tags */}
 
           <div className="mt-5 flex flex-wrap gap-2">
-{industry.works?.slice(0,3).map((work)=>(
-  <span
-    key={work.id}
-    className="
+            {industry.works?.slice(0, 3).map((work) => (
+              <span
+                key={work.id}
+                className="
     rounded-full
     border
     px-3 py-1
     text-xs
     font-semibold
     "
-    style={{
-      color: industry.accent,
-      borderColor: `${industry.accent}40`,
-      backgroundColor: `${industry.accent}12`
-    }}
-  >
-    {work.title}
-  </span>
-))}
-
+                style={{
+                  color: industry.accent,
+                  borderColor: `${industry.accent}40`,
+                  backgroundColor: `${industry.accent}12`,
+                }}
+              >
+                {work.title}
+              </span>
+            ))}
           </div>
-
-
 
           {/* CTA */}
 
           <div
-          className="
+            className="
           mt-6 flex items-center gap-2
           font-semibold
           transition-all
           group-hover:gap-4
           "
-          style={{
-            color:industry.accent
-          }}
+            style={{
+              color: industry.accent,
+            }}
           >
-
             Explore Industry
-
             <ArrowRight
-            size={18}
-            className="
+              size={18}
+              className="
             transition-transform
             duration-300
             group-hover:translate-x-2
             "
             />
-
           </div>
-
-
         </div>
-
-
       </Link>
-
     </motion.div>
   );
 };
-
 
 export default IndustryCard;

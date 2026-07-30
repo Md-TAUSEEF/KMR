@@ -860,9 +860,9 @@ const cardGradient = cardColors[index % cardColors.length];
             TOP BLUE LINE
         ======================================================== */}
 
-        <div
+        {/* <div
           className={`absolute inset-x-0 top-0 z-20 h-[3px] bg-gradient-to-r ${cardGradient} opacity-80 transition-all duration-300 group-hover:opacity-100`}
-        />
+        /> */}
 
         {/* ========================================================
             IMAGE
@@ -877,11 +877,11 @@ const cardGradient = cardColors[index % cardColors.length];
 
           {/* PRODUCT NUMBER */}
 
-          <div
+          {/* <div
             className={`absolute left-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${cardGradient} text-sm font-extrabold text-white shadow-lg`}
           >
             {String(index + 1).padStart(2, "0")}
-          </div>
+          </div> */}
 
           <img
             src={product.image}
