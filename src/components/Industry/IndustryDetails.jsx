@@ -5,6 +5,7 @@ import { industryData } from "../Industry/industryData";
 
 import IndustryHero from "../Industry/IndustryHero";
 import IndustryWorks from "../Industry/IndustryWorks";
+import IndustryProducts from "../Industry/IndustryProducts";
 import IndustryBenefits from "../Industry/IndustryBenefits";
 import IndustryCTA from "../Industry/IndustryCTA";
 
@@ -39,6 +40,8 @@ const IndustryDetails = () => {
   return (
     <main className="overflow-hidden bg-white">
       <IndustryHero industry={industry} />
+
+      <IndustryProducts industry={industry} />
 
       <IndustryWorks industry={industry} />
 

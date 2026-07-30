@@ -5,7 +5,9 @@ import Navbar from "./components/Navbar/Navbar";
 
 // Pages
 import Home from "./components/home/Home";
-
+import ClientsPage from "./components/pages/ClientsPage";
+import AboutPage from "./components/home/about/AboutPage";
+import Services from "./components/pages/Services";
 // Product Pages
 import Products from "./components/home/product/Products";
 import ProductDetails from "./components/home/product/ProductDetails";
@@ -23,6 +25,9 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
+        <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/service" element={<Services />} />
 
         {/* Products */}
         <Route path="/products" element={<Products />} />

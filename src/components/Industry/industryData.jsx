@@ -20,7 +20,6 @@ import {
   Warehouse,
 } from "lucide-react";
 
-
 import BUILDINGCONSTRUCTION from "../../assets/products/sector/BUILDINGCONSTRUCTION.png";
 import OILGAS from "../../assets/products/sector/OILGAS.png";
 import METRORAIL from "../../assets/products/sector/METRORAIL.png";
@@ -34,8 +33,70 @@ import HOTELSRESORTS from "../../assets/products/sector/HOTELSRESORTS.png";
 
 import SHOPPINGMALLS from "../../assets/products/sector/SHOPPINGMALLS.png";
 import EDUCATIONALINSTITUTIONS from "../../assets/products/sector/EDUCATIONALINSTITUTIONS.png";
-import adhesive from "../../assets/products/adhesive.png"
-import coating from "../../assets/products/coating.png"
+
+
+
+
+
+
+
+
+import waterproofing from "../../assets/products/waterproofing.png";
+import adhesive from "../../assets/products/adhesive.png";
+import coating from "../../assets/products/coating.png";
+import flooring from "../../assets/products/flooring.png";
+import grout from "../../assets/products/grout.png";
+import repair from "../../assets/products/repair.png";
+
+
+import admixture1 from "../../assets/products/Admixtures/admixture1.png";
+import admixture2 from "../../assets/products/Admixtures/admixture2.png";
+import admixture3 from "../../assets/products/Admixtures/admixture3.png";
+import admixture4 from "../../assets/products/Admixtures/admixture4.png";
+
+
+import Accelerators1 from "../../assets/products/Accelerators/Accelerators1.png"
+import Accelerators2 from "../../assets/products/Accelerators/Accelerators2.png"
+import Accelerators3 from "../../assets/products/Accelerators/Accelerators3.png"
+import Accelerators4 from "../../assets/products/Accelerators/Accelerators4.png"
+import Accelerators5 from "../../assets/products/Accelerators/Accelerators5.png"
+
+import WaterProofing1 from "../../assets/products/WaterProofing/WaterProofing1.png"
+import WaterProofing2 from "../../assets/products/WaterProofing/WaterProofing2.png"
+import WaterProofing3 from "../../assets/products/WaterProofing/WaterProofing3.png"
+import WaterProofing4 from "../../assets/products/WaterProofing/WaterProofing4.png"
+import WaterProofing5 from "../../assets/products/WaterProofing/WaterProofing5.png"
+
+
+import ShutterReleas1 from "../../assets/products/ShutterRelease/ShutterReleas1.png"
+import ShutterReleas2 from "../../assets/products/ShutterRelease/ShutterReleas2.png"
+import ShutterReleas3 from "../../assets/products/ShutterRelease/ShutterReleas3.png"
+import ShutterReleas4 from "../../assets/products/ShutterRelease/ShutterReleas4.png"
+
+import CuringCompounds1 from "../../assets/products/CuringCompounds/CuringCompounds1.png"
+import CuringCompounds2 from "../../assets/products/CuringCompounds/CuringCompounds2.png"
+import CuringCompounds3 from "../../assets/products/CuringCompounds/CuringCompounds3.png"
+import CuringCompounds4 from "../../assets/products/CuringCompounds/CuringCompounds3.png"
+
+import waterReducer1 from "../../assets/products/waterreducer/waterReducer1.png"
+import waterReducer2 from "../../assets/products/waterreducer/waterReducer2.png"
+import waterReducer3 from "../../assets/products/waterreducer/waterReducer3.png"
+import waterReducer4 from "../../assets/products/waterreducer/waterReducer4.png"
+import waterReducer5 from "../../assets/products/waterreducer/waterReducer5.png"
+
+
+import pce1 from "../../assets/products/pce/pce1.png"
+import pce2 from "../../assets/products/pce/pce2.png"
+import pce3 from "../../assets/products/pce/pce3.png"
+import pce4 from "../../assets/products/pce/pce4.png"
+import pce5 from "../../assets/products/pce/pce5.png"
+
+
+import knf1 from "../../assets/products/knf/knf1.png"
+import knf2 from "../../assets/products/knf/knf2.png"
+import knf3 from "../../assets/products/knf/knf3.png"
+import knf4 from "../../assets/products/knf/knf4.png"
+import knf5 from "../../assets/products/knf/knf5.png"
 
 export const industryData = [
   // ======================================================
@@ -100,6 +161,34 @@ export const industryData = [
         icon: FlaskConical,
       },
     ],
+
+    // ================= PRODUCTS =================
+
+products:[
+{
+ name:"Tile Adhesive",
+ description:"Premium tile fixing solution for residential and commercial buildings.",
+ image:adhesive
+},
+
+{
+ name:"Waterproofing Compound",
+ description:"Advanced waterproofing system for roofs, bathrooms and basements.",
+ image:waterproofing
+},
+
+{
+ name:"Repair Mortar",
+ description:"High strength repair solution for damaged concrete structures.",
+ image:repair
+},
+
+{
+ name:"Protective Coating",
+ description:"Protective coating for concrete durability.",
+ image:coating
+}
+],
 
     // ================= WORKS =================
 
@@ -220,6 +309,38 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products:[
+{
+ name:"Anti Corrosion Coating",
+ description:
+ "Heavy duty coating system for pipelines, tanks and refinery structures.",
+ image:coating
+},
+
+{
+ name:"Chemical Resistant Flooring",
+ description:
+ "Industrial flooring system for oil and gas processing areas.",
+ image:flooring
+},
+
+{
+ name:"Repair Mortar",
+ description:
+ "High strength repair system for industrial concrete structures.",
+ image:repair
+},
+
+{
+ name:"Waterproofing System",
+ description:
+ "Protection system for tanks and underground structures.",
+ image:waterproofing
+}
+],
+
     // ================= WORKS =================
 
     works: [
@@ -336,6 +457,38 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products:[
+{
+ name:"Shotcrete Accelerator",
+ image:Accelerators1,
+ description:
+ "Rapid setting solution for tunnelling and underground metro projects."
+},
+
+{
+ name:"Injection Grout",
+ image:grout,
+ description:
+ "Used for crack filling and underground waterproofing."
+},
+
+{
+ name:"Waterproofing Compound",
+ image:waterproofing,
+ description:
+ "Protection system for metro tunnels and stations."
+},
+
+{
+ name:"Repair Mortar",
+ image:repair,
+ description:
+ "Structural repair solution for railway infrastructure."
+}
+],
+
     works: [
       {
         id: 1,
@@ -447,6 +600,30 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products:[
+{
+ name:"Concrete Repair Mortar",
+ image:repair
+},
+
+{
+ name:"Joint Sealant",
+ image:coating
+},
+
+{
+ name:"Waterproofing System",
+ image:waterproofing
+},
+
+{
+ name:"Concrete Admixture",
+ image:admixture1
+}
+],
+
     works: [
       {
         id: 1,
@@ -555,6 +732,42 @@ export const industryData = [
         icon: FlaskConical,
       },
     ],
+
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Bridge Deck Waterproofing System",
+    description:
+      "Advanced waterproofing solution designed to protect bridge decks from water penetration, moisture damage and weather exposure.",
+    image: waterproofing,
+  },
+
+  {
+    id: 2,
+    name: "Structural Repair Mortar",
+    description:
+      "High-strength repair mortar for restoring damaged concrete surfaces, piers, beams and bridge structures.",
+    image: repair,
+  },
+
+  {
+    id: 3,
+    name: "Anti Corrosion Protective Coating",
+    description:
+      "Premium protective coating system that protects steel reinforcement and concrete structures from corrosion.",
+    image: coating,
+  },
+
+  {
+    id: 4,
+    name: "Injection Grouting System",
+    description:
+      "High-performance grouting solution for crack sealing, void filling and structural strengthening applications.",
+    image: grout,
+  },
+],
 
     works: [
       {
@@ -666,6 +879,30 @@ export const industryData = [
         icon: FlaskConical,
       },
     ],
+
+    // ================= PRODUCTS =================
+
+products:[
+{
+ name:"Protective Coating",
+ image:coating
+},
+
+{
+ name:"Chemical Resistant Flooring",
+ image:flooring
+},
+
+{
+ name:"Concrete Admixture",
+ image:admixture1
+},
+
+{
+ name:"Repair System",
+ image:repair
+}
+],
 
     works: [
       {
@@ -779,6 +1016,42 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Waterproofing System",
+    description:
+      "Advanced waterproofing solution for water treatment plants, reservoirs, tanks and underground structures to prevent leakage.",
+    image: waterproofing,
+  },
+
+  {
+    id: 2,
+    name: "Chemical Resistant Coating",
+    description:
+      "Protective coating system designed to resist chemical attack in sewage treatment plants and industrial water facilities.",
+    image: coating,
+  },
+
+  {
+    id: 3,
+    name: "Concrete Repair Mortar",
+    description:
+      "High-strength repair mortar for damaged concrete surfaces in tanks, channels and water infrastructure.",
+    image: repair,
+  },
+
+  {
+    id: 4,
+    name: "Injection Grouting System",
+    description:
+      "Specialized grout solution for crack sealing, leak control and structural strengthening of water retaining structures.",
+    image: grout,
+  },
+],
+
     works: [
       {
         id: 1,
@@ -888,6 +1161,42 @@ export const industryData = [
         icon: Droplets,
       },
     ],
+
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Industrial Flooring System",
+    description:
+      "Heavy-duty flooring solution designed for factories, warehouses and manufacturing areas with high load and abrasion resistance.",
+    image: flooring,
+  },
+
+  {
+    id: 2,
+    name: "Chemical Resistant Coating",
+    description:
+      "High-performance protective coating system for industrial floors and structures exposed to chemicals and harsh environments.",
+    image: coating,
+  },
+
+  {
+    id: 3,
+    name: "Structural Repair Mortar",
+    description:
+      "High-strength repair solution for damaged concrete floors, columns and industrial structures.",
+    image: repair,
+  },
+
+  {
+    id: 4,
+    name: "Concrete Admixture",
+    description:
+      "Advanced concrete admixture technology to improve strength, durability and performance of industrial structures.",
+    image: admixture1,
+  },
+],
 
     works: [
       {
@@ -1002,6 +1311,42 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Antibacterial Flooring System",
+    description:
+      "Seamless hygienic flooring solution designed for hospitals, laboratories and healthcare facilities with easy cleaning and maintenance.",
+    image: flooring,
+  },
+
+  {
+    id: 2,
+    name: "Medical Area Waterproofing System",
+    description:
+      "Advanced waterproofing solution for bathrooms, operation theatres and sensitive healthcare areas.",
+    image: waterproofing,
+  },
+
+  {
+    id: 3,
+    name: "Chemical Resistant Coating",
+    description:
+      "Protective coating system resistant to cleaning chemicals, disinfectants and harsh healthcare environments.",
+    image: coating,
+  },
+
+  {
+    id: 4,
+    name: "High Strength Repair Mortar",
+    description:
+      "Durable repair solution for concrete structures in hospitals and healthcare infrastructure.",
+    image: repair,
+  },
+],
+
     works: [
       {
         id: 1,
@@ -1096,6 +1441,41 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Luxury Flooring System",
+    description:
+      "Premium decorative flooring solution designed for hotels, resorts, lobbies and hospitality spaces with elegant finishes and high durability.",
+    image: flooring,
+  },
+
+  {
+    id: 2,
+    name: "Bathroom Waterproofing System",
+    description:
+      "Advanced waterproofing solution for hotel bathrooms, wet areas and swimming pool surroundings to prevent leakage and moisture damage.",
+    image: waterproofing,
+  },
+
+  {
+    id: 3,
+    name: "Decorative Protective Coating",
+    description:
+      "High-quality coating system that provides attractive finishes and protection for hospitality interiors and exterior surfaces.",
+    image: coating,
+  },
+
+  {
+    id: 4,
+    name: "Concrete Repair & Restoration Mortar",
+    description:
+      "Premium repair mortar for maintaining concrete structures, terraces, balconies and hospitality infrastructure.",
+    image: repair,
+  },
+],
     works: [
       {
         id: 1,
@@ -1186,6 +1566,42 @@ export const industryData = [
         icon: FlaskConical,
       },
     ],
+
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Heavy Duty Flooring System",
+    description:
+      "High-performance flooring solution designed for shopping malls, retail spaces and high footfall areas with excellent abrasion resistance.",
+    image: flooring,
+  },
+
+  {
+    id: 2,
+    name: "Decorative Concrete Coating",
+    description:
+      "Premium decorative coating system that provides attractive finishes and long-lasting protection for commercial spaces.",
+    image: coating,
+  },
+
+  {
+    id: 3,
+    name: "Commercial Waterproofing System",
+    description:
+      "Advanced waterproofing solution for basements, parking areas, terraces and wet zones in shopping complexes.",
+    image: waterproofing,
+  },
+
+  {
+    id: 4,
+    name: "Structural Repair Mortar",
+    description:
+      "High-strength repair mortar for concrete structures, columns, beams and maintenance work in commercial buildings.",
+    image: repair,
+  },
+],
 
     works: [
       {
@@ -1278,6 +1694,41 @@ export const industryData = [
       },
     ],
 
+    // ================= PRODUCTS =================
+
+products: [
+  {
+    id: 1,
+    name: "Institutional Flooring System",
+    description:
+      "Durable and safe flooring solution designed for schools, colleges and universities with excellent strength and easy maintenance.",
+    image: flooring,
+  },
+
+  {
+    id: 2,
+    name: "Building Waterproofing System",
+    description:
+      "Advanced waterproofing solution for classrooms, laboratories, terraces and institutional buildings to prevent moisture damage.",
+    image: waterproofing,
+  },
+
+  {
+    id: 3,
+    name: "Protective Coating System",
+    description:
+      "High-performance protective coating for walls, concrete surfaces and educational infrastructure exposed to weather conditions.",
+    image: coating,
+  },
+
+  {
+    id: 4,
+    name: "Concrete Repair Mortar",
+    description:
+      "High-strength repair solution for damaged concrete structures, columns, beams and campus infrastructure maintenance.",
+    image: repair,
+  },
+],
     works: [
       {
         id: 1,
