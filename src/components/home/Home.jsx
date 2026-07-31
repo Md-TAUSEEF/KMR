@@ -6,6 +6,8 @@ import Applications from "../Industry/Applications";
 import WhyChoose from "./whyChoose/WhyChoose";
 import ManufacturingFactory from "../home/about/ManufacturingFactory"
 import Clients from "./Clients/Clients";
+import CertificationLogos from "./certificates/CertificationLogos";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
       <Products />
       <ManufacturingProcess />
       <Applications />
+      <Gallery/>
+      <CertificationLogos/>
       <WhyChoose/>
 
       <Clients/>

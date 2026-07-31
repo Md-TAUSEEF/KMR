@@ -6,10 +6,14 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import { useNavigate } from "react-router-dom";
 import { clientData } from "../home/Clients/clientData";
 
 const ClientsPage = () => {
+  const navigate = useNavigate();
   return (
+
+    
     <main className="relative min-h-screen overflow-hidden bg-slate-50">
 
       {/* ============================================================
@@ -415,14 +419,16 @@ const ClientsPage = () => {
                 choose the right solution.
               </p>
 
-              <button
-                type="button"
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-black text-sky-700 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              >
-                Contact Our Experts
 
-                <ArrowRight size={17} />
-              </button>
+<button
+  type="button"
+  onClick={() => navigate("/contact")}
+  className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-black text-sky-700 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+>
+  Contact Our Experts
+
+  <ArrowRight size={17} />
+</button>
 
             </div>
 

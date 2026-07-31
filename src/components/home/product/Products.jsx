@@ -456,7 +456,7 @@ group-hover:scale-105
                     BUTTONS
                 ================================================== */}
 
-                <div className="mt- flex flex-wrap gap-4">
+                <div className="mt-10 flex flex-wrap gap-4">
                   <Link
                     to="/products"
                     className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_30px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(14,165,233,0.35)] md:px-8"
@@ -469,28 +469,35 @@ group-hover:scale-105
                   </Link>
 
                   <button
-                    type="button"
-                    className="group inline-flex items-center gap-3 rounded-full border-2 border-sky-400 bg-white px-7 py-3.5 text-sm font-bold text-sky-600 transition-all duration-300 hover:-translate-y-1 hover:bg-sky-50 md:px-8"
-                  >
-                    Download Catalogue
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 3v12" strokeLinecap="round" />
+  type="button"
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = "/KMR - Brochure 26 (April).pdf"; 
+    link.download = "KMR-Catalogue.pdf"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }}
+  className="group inline-flex items-center gap-3 rounded-full border-2 border-sky-400 bg-white px-7 py-3.5 text-sm font-bold text-sky-600 transition-all duration-300 hover:-translate-y-1 hover:bg-sky-50 md:px-8"
+>
+  Download Catalogue
 
-                      <path
-                        d="M7 10l5 5 5-5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-
-                      <path d="M5 21h14" strokeLinecap="round" />
-                    </svg>
-                  </button>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path d="M12 3v12" strokeLinecap="round" />
+    <path
+      d="M7 10l5 5 5-5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M5 21h14" strokeLinecap="round" />
+  </svg>
+</button>
                 </div>
 
                 {/* CATEGORY LABEL */}

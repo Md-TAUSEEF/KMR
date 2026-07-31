@@ -7,7 +7,7 @@ import {
   ChevronDown,
   Phone,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // ============================================================
 // MAIN NAV LINKS
@@ -33,7 +33,7 @@ const navLinks = [
   },
   {
     name: "Gallery",
-    href: "#gallery",
+    href: "/gallery",
   },
   {
     name: "Clients",
@@ -41,11 +41,11 @@ const navLinks = [
   },
   {
     name: "Certificates",
-    href: "#certificates",
+    href: "/certificate",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
@@ -96,7 +96,16 @@ const productLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("Home");
+const location = useLocation();
+const pathname = location.pathname;
+
+const isActive = (href) => {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
 
   // Desktop Products dropdown
   const [productsOpen, setProductsOpen] = useState(false);
@@ -160,32 +169,29 @@ export default function Navbar() {
   // NAV CLICK
   // ============================================================
 
-  const handleNavClick = (name) => {
-    setActive(name);
-    setProductsOpen(false);
-    setMobileProductsOpen(false);
-    setIsOpen(false);
-  };
+ const handleNavClick = () => {
+  setProductsOpen(false);
+  setMobileProductsOpen(false);
+  setIsOpen(false);
+};
 
   // ============================================================
   // PRODUCT CLICK
   // ============================================================
 
   const handleProductClick = () => {
-    setActive("Products");
-    setProductsOpen(false);
-    setMobileProductsOpen(false);
-    setIsOpen(false);
-  };
+  setProductsOpen(false);
+  setMobileProductsOpen(false);
+  setIsOpen(false);
+};
 
   // ============================================================
   // MOBILE PRODUCT TOGGLE
   // ============================================================
 
-  const toggleMobileProducts = () => {
-    setActive("Products");
-    setMobileProductsOpen((prev) => !prev);
-  };
+ const toggleMobileProducts = () => {
+  setMobileProductsOpen((prev) => !prev);
+};
 
   return (
     <>
@@ -280,7 +286,7 @@ export default function Navbar() {
                         duration: 0.45,
                       }}
                       className={`group relative flex items-center gap-1.5 py-3 text-[15px] font-bold transition-all duration-300 ${
-                        active === item.name
+                        isActive(item.href)
                           ? "text-emerald-400"
                           : "text-slate-200 hover:text-emerald-400"
                       }`}
@@ -305,7 +311,8 @@ export default function Navbar() {
 
                       <span
                         className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-gradient-to-r from-emerald-400 via-green-500 to-lime-400 transition-all duration-300 ${
-                          active === item.name
+                          isActive(item.href)
+                        
                             ? "w-full"
                             : "w-0 group-hover:w-full"
                         }`}
@@ -432,7 +439,7 @@ export default function Navbar() {
                         to={item.href}
                         onClick={() => handleNavClick(item.name)}
                         className={`flex items-center justify-between border-b border-white/5 py-4 text-[16px] font-bold transition-all ${
-                          active === item.name
+                         isActive(item.href)
                             ? "text-cyan-300"
                             : "text-slate-200 hover:pl-2 hover:text-cyan-300"
                         }`}
@@ -606,7 +613,7 @@ export default function Navbar() {
                           onClick={toggleMobileProducts}
                           aria-expanded={mobileProductsOpen}
                           className={`flex w-full items-center justify-between border-b border-white/5 py-4 text-left text-[16px] font-bold transition-all ${
-                            active === item.name
+                            isActive(item.href)
                               ? "text-emerald-400"
                               : "text-slate-200 hover:text-emerald-300"
                           }`}
@@ -718,7 +725,7 @@ export default function Navbar() {
                           delay: index * 0.06,
                         }}
                         className={`flex items-center justify-between border-b border-white/5 py-4 text-[16px] font-bold transition-all ${
-                          active === item.name
+                          isActive(item.href)
                             ? "text-emerald-400"
                             : "text-slate-200 hover:pl-2 hover:text-emerald-300"
                         }`}

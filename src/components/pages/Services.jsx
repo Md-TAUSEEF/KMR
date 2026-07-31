@@ -7,26 +7,21 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+
+import { useNavigate } from "react-router-dom";
 import IndustryCard from "../Industry/IndustryCard";
 import { industryData } from "../Industry/industryData";
 
 const Services = () => {
-  // ============================================================
-  // SHOW / HIDE ALL SERVICES
-  // ============================================================
+  const navigate=useNavigate();
 
   const [showAll, setShowAll] = useState(false);
 
-  // ============================================================
-  // INITIAL SERVICES
-  // 4 CARDS PER ROW × 3 ROWS = 12 CARDS
-  // ============================================================
+
 
   const visibleServices = showAll ? industryData : industryData.slice(0, 12);
 
-  // ============================================================
-  // CHECK IF MORE SERVICES EXIST
-  // ============================================================
+
 
   const hasMoreServices = industryData.length > 12;
 
@@ -293,8 +288,9 @@ const Services = () => {
 
             {/* Button */}
 
-            <button
-              type="button"
+            <button type="button"
+  onClick={() => navigate("/contact")}
+              
               className="group relative mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-extrabold text-sky-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               Explore Solutions

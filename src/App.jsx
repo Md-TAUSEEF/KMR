@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ScrollToTop from "./components/ScrollToTop";
 // Navbar
 import Navbar from "./components/Navbar/Navbar";
 
@@ -16,10 +16,15 @@ import ProductDetails from "./components/home/product/ProductDetails";
 import Applications from "./components/Industry/Applications";
 import IndustryDetails from "./components/Industry/IndustryDetails";
 import WorkDetails from "./components/Industry/WorkDetails";
+import CertificatesPreview from "./components/home/certificates/CertificatesPreview";
+import Gallery from "./components/Gallery/Gallery";
+import Contact from "./components/pages/contact";
+import Footer from "./components/pages/Footer";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Navbar />
 
       <Routes>
@@ -28,6 +33,9 @@ function App() {
         <Route path="/clients" element={<ClientsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/service" element={<Services />} />
+        <Route path="/certificate" element={<CertificatesPreview/>}/>
+        <Route path="/gallery" element={<Gallery/>}/>
+        <Route path="/contact" element={<Contact/>}/>
 
         {/* Products */}
         <Route path="/products" element={<Products />} />
@@ -51,6 +59,8 @@ function App() {
         {/* 404 Page */}
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
+
+      <Footer/>
     </BrowserRouter>
   );
 }
