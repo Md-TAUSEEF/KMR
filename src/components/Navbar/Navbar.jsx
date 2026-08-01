@@ -234,7 +234,7 @@ export default function Navbar() {
                 className="group flex items-center"
               >
                 <img
-                  src="/kmr-logo.png"
+                  src="/kmr-logo.webp"
                   alt="KMR Conchem"
                   className="h-[58px] w-auto object-contain transition-transform duration-500 group-hover:scale-105 sm:h-[64px]"
                 />
@@ -567,7 +567,7 @@ export default function Navbar() {
               <div className="relative flex items-center justify-between border-b border-white/10 p-5">
                 <Link to="/" onClick={() => handleNavClick("Home")}>
                   <img
-                    src="/kmr-logo.png"
+                    src="/kmr-logo.webp"
                     alt="KMR Conchem"
                     className="h-14 w-auto object-contain"
                   />

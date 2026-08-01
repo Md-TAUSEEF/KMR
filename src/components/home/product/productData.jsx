@@ -9,62 +9,62 @@ import {
   FlaskConical,
 } from "lucide-react";
 
-import waterproofing from "../../../assets/products/waterproofing.png";
-import adhesive from "../../../assets/products/adhesive.png";
-import coating from "../../../assets/products/coating.png";
-import flooring from "../../../assets/products/flooring.png";
-import grout from "../../../assets/products/grout.png";
-import repair from "../../../assets/products/repair.png";
+import waterproofing from "../../../assets/products/waterproofing.webp";
+import adhesive from "../../../assets/products/adhesive.webp";
+import coating from "../../../assets/products/coating.webp";
+import flooring from "../../../assets/products/flooring.webp";
+import grout from "../../../assets/products/grout.webp";
+import repair from "../../../assets/products/repair.webp";
 
 
-import admixture1 from "../../../assets/products/Admixtures/admixture1.png";
-import admixture2 from "../../../assets/products/Admixtures/admixture2.png";
-import admixture3 from "../../../assets/products/Admixtures/admixture3.png";
-import admixture4 from "../../../assets/products/Admixtures/admixture4.png";
+import admixture1 from "../../../assets/products/Admixtures/admixture1.webp";
+import admixture2 from "../../../assets/products/Admixtures/admixture2.webp";
+import admixture3 from "../../../assets/products/Admixtures/admixture3.webp";
+import admixture4 from "../../../assets/products/Admixtures/admixture4.webp";
 
 
-import Accelerators1 from "../../../assets/products/Accelerators/Accelerators1.png"
-import Accelerators2 from "../../../assets/products/Accelerators/Accelerators2.png"
-import Accelerators3 from "../../../assets/products/Accelerators/Accelerators3.png"
-import Accelerators4 from "../../../assets/products/Accelerators/Accelerators4.png"
-import Accelerators5 from "../../../assets/products/Accelerators/Accelerators5.png"
+import Accelerators1 from "../../../assets/products/Accelerators/Accelerators1.webp"
+import Accelerators2 from "../../../assets/products/Accelerators/Accelerators2.webp"
+import Accelerators3 from "../../../assets/products/Accelerators/Accelerators3.webp"
+import Accelerators4 from "../../../assets/products/Accelerators/Accelerators4.webp"
+import Accelerators5 from "../../../assets/products/Accelerators/Accelerators5.webp"
 
-import WaterProofing1 from "../../../assets/products/WaterProofing/WaterProofing1.png"
-import WaterProofing2 from "../../../assets/products/WaterProofing/WaterProofing2.png"
-import WaterProofing3 from "../../../assets/products/WaterProofing/WaterProofing3.png"
-import WaterProofing4 from "../../../assets/products/WaterProofing/WaterProofing4.png"
-import WaterProofing5 from "../../../assets/products/WaterProofing/WaterProofing5.png"
-
-
-import ShutterReleas1 from "../../../assets/products/ShutterRelease/ShutterReleas1.png"
-import ShutterReleas2 from "../../../assets/products/ShutterRelease/ShutterReleas2.png"
-import ShutterReleas3 from "../../../assets/products/ShutterRelease/ShutterReleas3.png"
-import ShutterReleas4 from "../../../assets/products/ShutterRelease/ShutterReleas4.png"
-
-import CuringCompounds1 from "../../../assets/products/CuringCompounds/CuringCompounds1.png"
-import CuringCompounds2 from "../../../assets/products/CuringCompounds/CuringCompounds2.png"
-import CuringCompounds3 from "../../../assets/products/CuringCompounds/CuringCompounds3.png"
-import CuringCompounds4 from "../../../assets/products/CuringCompounds/CuringCompounds3.png"
-
-import waterReducer1 from "../../../assets/products/waterreducer/waterReducer1.png"
-import waterReducer2 from "../../../assets/products/waterreducer/waterReducer2.png"
-import waterReducer3 from "../../../assets/products/waterreducer/waterReducer3.png"
-import waterReducer4 from "../../../assets/products/waterreducer/waterReducer4.png"
-import waterReducer5 from "../../../assets/products/waterreducer/waterReducer5.png"
+import WaterProofing1 from "../../../assets/products/WaterProofing/WaterProofing1.webp"
+import WaterProofing2 from "../../../assets/products/WaterProofing/WaterProofing2.webp"
+import WaterProofing3 from "../../../assets/products/WaterProofing/WaterProofing3.webp"
+import WaterProofing4 from "../../../assets/products/WaterProofing/WaterProofing4.webp"
+import WaterProofing5 from "../../../assets/products/WaterProofing/WaterProofing5.webp"
 
 
-import pce1 from "../../../assets/products/pce/pce1.png"
-import pce2 from "../../../assets/products/pce/pce2.png"
-import pce3 from "../../../assets/products/pce/pce3.png"
-import pce4 from "../../../assets/products/pce/pce4.png"
-import pce5 from "../../../assets/products/pce/pce5.png"
+import ShutterReleas1 from "../../../assets/products/ShutterRelease/ShutterReleas1.webp"
+import ShutterReleas2 from "../../../assets/products/ShutterRelease/ShutterReleas2.webp"
+import ShutterReleas3 from "../../../assets/products/ShutterRelease/ShutterReleas3.webp"
+import ShutterReleas4 from "../../../assets/products/ShutterRelease/ShutterReleas4.webp"
+
+import CuringCompounds1 from "../../../assets/products/CuringCompounds/CuringCompounds1.webp"
+import CuringCompounds2 from "../../../assets/products/CuringCompounds/CuringCompounds2.webp"
+import CuringCompounds3 from "../../../assets/products/CuringCompounds/CuringCompounds3.webp"
+import CuringCompounds4 from "../../../assets/products/CuringCompounds/CuringCompounds5.webp"
+
+import waterReducer1 from "../../../assets/products/waterreducer/waterReducer1.webp"
+import waterReducer2 from "../../../assets/products/waterreducer/waterReducer2.webp"
+import waterReducer3 from "../../../assets/products/waterreducer/waterReducer3.webp"
+import waterReducer4 from "../../../assets/products/waterreducer/waterReducer4.webp"
+import waterReducer5 from "../../../assets/products/waterreducer/waterReducer5.webp"
 
 
-import knf1 from "../../../assets/products/knf/knf1.png"
-import knf2 from "../../../assets/products/knf/knf2.png"
-import knf3 from "../../../assets/products/knf/knf3.png"
-import knf4 from "../../../assets/products/knf/knf4.png"
-import knf5 from "../../../assets/products/knf/knf5.png"
+import pce1 from "../../../assets/products/pce/pce1.webp"
+import pce2 from "../../../assets/products/pce/pce2.webp"
+import pce3 from "../../../assets/products/pce/pce3.webp"
+import pce4 from "../../../assets/products/pce/pce4.webp"
+import pce5 from "../../../assets/products/pce/pce5.webp"
+
+
+import knf1 from "../../../assets/products/knf/knf1.webp"
+import knf2 from "../../../assets/products/knf/knf2.webp"
+import knf3 from "../../../assets/products/knf/knf3.webp"
+import knf4 from "../../../assets/products/knf/knf4.webp"
+import knf5 from "../../../assets/products/knf/knf5.webp"
 
 
 export const productData = [

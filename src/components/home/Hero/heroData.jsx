@@ -1,11 +1,11 @@
-import hero1 from "../../../assets/hero/hero1.jpg";
-import hero2 from "../../../assets/hero/hero2.jpg";
-import hero3 from "../../../assets/hero/hero3.jpg";
-import hero4 from "../../../assets/hero/hero4.jpg";
-import hero5 from "../../../assets/hero/hero5.jpg";
-import hero6 from "../../../assets/hero/hero6.jpg";
-import hero7 from "../../../assets/hero/hero7.jpg";
-import hero8 from "../../../assets/hero/hero8.jpg";
+import hero1 from "../../../assets/hero/hero1.webp";
+import hero2 from "../../../assets/hero/hero2.webp";
+import hero3 from "../../../assets/hero/hero3.webp";
+import hero4 from "../../../assets/hero/hero4.webp";
+import hero5 from "../../../assets/hero/hero5.webp";
+import hero6 from "../../../assets/hero/hero6.webp";
+import hero7 from "../../../assets/hero/hero7.webp";
+import hero8 from "../../../assets/hero/hero8.webp";
 
 // ============================================================
 // KMR CONCHEM HERO SLIDES

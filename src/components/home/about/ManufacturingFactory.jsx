@@ -12,7 +12,7 @@ import {
   Users,
 } from "lucide-react";
 
-import factoryImage from "../../../assets/manufac/factory.png";
+import factoryImage from "../../../assets/manufac/factory.webp";
 
 const ManufacturingFactory = () => {
   const highlights = [

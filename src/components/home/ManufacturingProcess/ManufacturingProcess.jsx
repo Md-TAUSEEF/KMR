@@ -16,14 +16,14 @@ import {
 } from "lucide-react";
 
 //first image ye h
-import main from "../../../assets/manufac/main.png";
+import main from "../../../assets/manufac/main.webp";
 
-import rawMaterialImage from "../../../assets/manufac/raw-material.png";
-import researchDevelopmentImage from "../../../assets/manufac/research-development.png";
-import advancedProductionImage from "../../../assets/manufac/advanced-production.png";
-import qualityTestingImage from "../../../assets/manufac/quality-testing.png";
-import packagingImage from "../../../assets/manufac/packaging.png";
-import deliveryImage from "../../../assets/manufac/delivery.png";
+import rawMaterialImage from "../../../assets/manufac/raw-material.webp";
+import researchDevelopmentImage from "../../../assets/manufac/research-development.webp";
+import advancedProductionImage from "../../../assets/manufac/advanced-production.webp";
+import qualityTestingImage from "../../../assets/manufac/quality-testing.webp";
+import packagingImage from "../../../assets/manufac/packaging.webp";
+import deliveryImage from "../../../assets/manufac/delivery.webp";
 
 const ManufacturingProcess = () => {
   // =========================================================

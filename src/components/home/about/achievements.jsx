@@ -15,10 +15,10 @@ import {
 // ACHIEVEMENT / CERTIFICATE IMAGES
 // ============================================================
 
-import achievement1 from "../../../assets/achievements/achievement1.png";
-import achievement2 from "../../../assets/achievements/achievement2.png";
-// import achievement3 from "../../../assets/achievements/achievement3.png";
-// import achievement4 from "../../../assets/achievements/achievement4.png";
+import achievement1 from "../../../assets/achievements/achievement1.webp";
+import achievement2 from "../../../assets/achievements/achievement2.webp";
+// import achievement3 from "../../../assets/achievements/achievement3.webp";
+// import achievement4 from "../../../assets/achievements/achievement4.webp";
 
 // ============================================================
 // ACHIEVEMENT DATA
