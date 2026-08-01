@@ -15,12 +15,12 @@ import { Link } from "react-router-dom";
 // GALLERY IMAGES
 // ============================================================
 
-import factoryImage from "../../assets/hero/hero4.jpg";
-import productionImage from "../../assets/manufac/factory.png";
-import qualityImage from "../../assets/manufac/quality-testing.png";
-import warehouseImage from "../../assets/hero/hero4.jpg";
-import packagingImage from "../../assets/manufac/packaging.png";
-import deliveryImage from "../../assets/manufac/delivery.png";
+import factoryImage from "../../assets/hero/hero4.webp";
+import productionImage from "../../assets/manufac/factory.webp";
+import qualityImage from "../../assets/manufac/quality-testing.webp";
+import warehouseImage from "../../assets/hero/hero4.webp";
+import packagingImage from "../../assets/manufac/packaging.webp";
+import deliveryImage from "../../assets/manufac/delivery.webp";
 
 // ============================================================
 // GALLERY DATA
