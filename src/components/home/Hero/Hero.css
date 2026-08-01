@@ -1,0 +1,153 @@
+/* ==========================================
+   HERO SWIPER
+========================================== */
+
+.hero-swiper,
+.hero-swiper .swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================
+   HERO IMAGE
+========================================== */
+
+.hero-zoom {
+  animation: heroZoom 12s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* ==========================================
+   BUTTON EFFECT
+========================================== */
+
+.hero-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -120%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+  transition: .8s;
+}
+
+.hero-btn:hover::before {
+  left: 120%;
+}
+
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.glass-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ==========================================
+   SOFT FLOAT
+========================================== */
+
+.float-card {
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+
+  0%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+
+}
+
+/* ==========================================
+   SCROLL INDICATOR
+========================================== */
+
+.scroll-line {
+  animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollMove {
+
+  0%{
+    transform: translateY(0);
+    opacity:0;
+  }
+
+  40%{
+    opacity:1;
+  }
+
+  100%{
+    transform: translateY(18px);
+    opacity:0;
+  }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:1024px){
+
+.hero-zoom{
+
+animation-duration:15s;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.hero-zoom{
+
+animation-duration:18s;
+
+}
+
+}
+
+@media (prefers-reduced-motion:reduce){
+
+.hero-zoom,
+.float-card,
+.scroll-line{
+
+animation:none;
+
+}
+
+}
