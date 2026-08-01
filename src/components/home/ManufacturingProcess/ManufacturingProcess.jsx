@@ -30,110 +30,110 @@ const ManufacturingProcess = () => {
   // MANUFACTURING PROCESS DATA
   // =========================================================
 
- const processSteps = [
-  {
-    number: "01",
-    title: "Raw Material",
-    subtitle: "Selection",
-    icon: ShoppingCart,
-    image: rawMaterialImage,
-    color: "#0EA5E9", // Sky
-    description: "...",
-  },
-  {
-    number: "02",
-    title: "Research &",
-    subtitle: "Development",
-    icon: Microscope,
-    image: researchDevelopmentImage,
-    color: "#8B5CF6", // Violet
-    description: "...",
-  },
-  {
-    number: "03",
-    title: "Advanced",
-    subtitle: "Production",
-    icon: Factory,
-    image: advancedProductionImage,
-    color: "#F97316", // Orange
-    description: "...",
-  },
-  {
-    number: "04",
-    title: "Quality",
-    subtitle: "Testing",
-    icon: ShieldCheck,
-    image: qualityTestingImage,
-    color: "#10B981", // Emerald
-    description: "...",
-  },
-  {
-    number: "05",
-    title: "Packaging",
-    subtitle: "",
-    icon: Package,
-    image: packagingImage,
-    color: "#EC4899", // Pink
-    description: "...",
-  },
-  {
-    number: "06",
-    title: "Delivery",
-    subtitle: "",
-    icon: Truck,
-    image: deliveryImage,
-    color: "#6366F1", // Indigo
-    description: "...",
-  },
-];
+  const processSteps = [
+    {
+      number: "01",
+      title: "Raw Material",
+      subtitle: "Selection",
+      icon: ShoppingCart,
+      image: rawMaterialImage,
+      color: "#0EA5E9", // Sky
+      description: "...",
+    },
+    {
+      number: "02",
+      title: "Research &",
+      subtitle: "Development",
+      icon: Microscope,
+      image: researchDevelopmentImage,
+      color: "#8B5CF6", // Violet
+      description: "...",
+    },
+    {
+      number: "03",
+      title: "Advanced",
+      subtitle: "Production",
+      icon: Factory,
+      image: advancedProductionImage,
+      color: "#F97316", // Orange
+      description: "...",
+    },
+    {
+      number: "04",
+      title: "Quality",
+      subtitle: "Testing",
+      icon: ShieldCheck,
+      image: qualityTestingImage,
+      color: "#10B981", // Emerald
+      description: "...",
+    },
+    {
+      number: "05",
+      title: "Packaging",
+      subtitle: "",
+      icon: Package,
+      image: packagingImage,
+      color: "#EC4899", // Pink
+      description: "...",
+    },
+    {
+      number: "06",
+      title: "Delivery",
+      subtitle: "",
+      icon: Truck,
+      image: deliveryImage,
+      color: "#6366F1", // Indigo
+      description: "...",
+    },
+  ];
   // =========================================================
   // BOTTOM QUALITY FEATURES
   // =========================================================
 
   const qualityFeatures = [
-  {
-    icon: Award,
-    title: "Premium",
-    subtitle: "Quality",
-    text: "Guaranteed",
-    color: "#F59E0B",
-  },
-  {
-    icon: ShieldCheck,
-    title: "International",
-    subtitle: "Standards",
-    text: "Compliant",
-    color: "#10B981",
-  },
-  {
-    icon: Cog,
-    title: "Advanced",
-    subtitle: "Manufacturing",
-    text: "Technology",
-    color: "#3B82F6",
-  },
-  {
-    icon: Leaf,
-    title: "Eco-Friendly",
-    subtitle: "& Sustainable",
-    text: "Solutions",
-    color: "#22C55E",
-  },
-  {
-    icon: Users,
-    title: "Customer",
-    subtitle: "Satisfaction",
-    text: "Our Priority",
-    color: "#EC4899",
-  },
-];
+    {
+      icon: Award,
+      title: "Premium",
+      subtitle: "Quality",
+      text: "Guaranteed",
+      color: "#F59E0B",
+    },
+    {
+      icon: ShieldCheck,
+      title: "International",
+      subtitle: "Standards",
+      text: "Compliant",
+      color: "#10B981",
+    },
+    {
+      icon: Cog,
+      title: "Advanced",
+      subtitle: "Manufacturing",
+      text: "Technology",
+      color: "#3B82F6",
+    },
+    {
+      icon: Leaf,
+      title: "Eco-Friendly",
+      subtitle: "& Sustainable",
+      text: "Solutions",
+      color: "#22C55E",
+    },
+    {
+      icon: Users,
+      title: "Customer",
+      subtitle: "Satisfaction",
+      text: "Our Priority",
+      color: "#EC4899",
+    },
+  ];
 
   // =========================================================
   // MAIN COMPONENT
   // =========================================================
 
   return (
-    <section className="relative overflow-hidden bg-[#f8fbff] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#f8fbff] py-12 md:py-16">
       {/* =====================================================
           BACKGROUND GLOW
       ====================================================== */}
@@ -161,7 +161,7 @@ const ManufacturingProcess = () => {
         <div className="mx-auto max-w-5xl text-center">
           {/* TOP BADGE */}
 
-          <div className="mb-5 inline-flex items-center rounded-full border-2 border-sky-400 bg-white px-6 py-2 shadow-[0_5px_20px_rgba(14,165,233,0.08)]">
+          <div className="mb-3 inline-flex items-center rounded-full border-2 border-sky-400 bg-white px-5 py-1.5 shadow-[0_5px_20px_rgba(14,165,233,0.08)]">
             <span className="text-sm font-bold tracking-wide text-sky-500 md:text-base">
               OUR MANUFACTURING PROCESS
             </span>
@@ -169,20 +169,21 @@ const ManufacturingProcess = () => {
 
           {/* MAIN TITLE */}
 
-          <h2 className="text-4xl font-extrabold leading-tight tracking-tight text-[#102944] sm:text-5xl md:text-6xl">
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-[#102944] sm:text-4xl md:text-5xl">
             Manufacturing Excellence
           </h2>
 
           {/* SUB TITLE */}
 
-          <h3 className="mt-3 text-2xl font-bold leading-tight text-[#102944] sm:text-3xl">
+          <h3 className="mt-2 text-xl
+sm:text-2xl font-bold leading-tight text-[#102944] sm:text-3xl">
             Built on <span className="text-sky-500">Innovation</span>. Driven by{" "}
             <span className="text-sky-500">Quality</span>.
           </h3>
 
           {/* DIVIDER */}
 
-          <div className="mx-auto mt-5 flex items-center justify-center gap-2">
+          <div className="mx-auto mt-3 flex items-center justify-center gap-2">
             <span className="h-[2px] w-14 bg-sky-300" />
 
             <span className="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(14,165,233,0.6)]" />
@@ -192,7 +193,7 @@ const ManufacturingProcess = () => {
 
           {/* DESCRIPTION */}
 
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-3 max-w-3xl text-base leading-6 text-slate-600 md:text-lg">
             At KMR Conchem, every product goes through a carefully controlled
             manufacturing process to deliver superior performance, reliability
             and long-term value.
@@ -203,12 +204,12 @@ const ManufacturingProcess = () => {
             HERO FACTORY IMAGE WRAPPER
         ==================================================== */}
 
-        <div className="relative mx-auto mt-10 max-w-[1200px]">
+        <div className="relative mx-auto mt-6 max-w-[1300px]">
           {/* =================================================
               LEFT FLOATING CARD
           ================================================== */}
 
-          <div className="absolute -left-20 top-12 z-30 hidden w-[155px] rounded-[25px] border border-white/80 bg-white/95 p-5 text-center shadow-[0_15px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl xl:block">
+          <div className="absolute -left-20 top-8 z-30 hidden w-[145px] rounded-[25px] border border-white/80 bg-white/95 p-4 text-center shadow-[0_15px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl xl:block">
             {/* Icon */}
 
             <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-sky-50">
@@ -256,7 +257,10 @@ const ManufacturingProcess = () => {
               MAIN FACTORY IMAGE
           ================================================== */}
 
-          <div className="relative h-[260px] overflow-hidden rounded-[30px] sm:h-[320px] md:h-[380px] lg:h-[410px]">
+          <div className="relative  overflow-hidden rounded-[30px] h-[240px]
+sm:h-[290px]
+md:h-[340px]
+lg:h-[360px]">
             <img
               src={main}
               alt="KMR Conchem Manufacturing Facility"
@@ -285,7 +289,7 @@ const ManufacturingProcess = () => {
             MANUFACTURING PROCESS STEPS
         ==================================================== */}
 
-        <div className="relative mt-12">
+        <div className="relative mt-8">
           {/* =================================================
               CONNECTING DOTTED LINE
           ================================================== */}
@@ -309,10 +313,12 @@ const ManufacturingProcess = () => {
                       STEP NUMBER
                   ========================================== */}
 
-                  <div className="relative z-30 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-lg"
-style={{
-  background: `linear-gradient(135deg, ${step.color}, ${step.color}CC)`,
-}}>
+                  <div
+                    className="relative z-30 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white shadow-lg"
+                    style={{
+                      background: `linear-gradient(135deg, ${step.color}, ${step.color}CC)`,
+                    }}
+                  >
                     {step.number}
                   </div>
 
@@ -321,31 +327,31 @@ style={{
                   ========================================== */}
 
                   <div
-  className="relative z-30 mt-3 flex h-[108px] w-[108px] shrink-0 items-center justify-center rounded-full bg-white transition-all duration-500 group-hover:-translate-y-2"
-  style={{
-    border: `2px solid ${step.color}30`,
-    boxShadow: `0 10px 30px ${step.color}22`,
-  }}
->
+                    className="relative z-30 mt-3 flex h-[90px] w-[90px] shrink-0 items-center justify-center rounded-full bg-white transition-all duration-500 group-hover:-translate-y-2"
+                    style={{
+                      border: `2px solid ${step.color}30`,
+                      boxShadow: `0 10px 30px ${step.color}22`,
+                    }}
+                  >
                     {/* Inner Circle */}
 
                     <div
-  className="absolute inset-[9px] rounded-full"
-  style={{
-    border: `1px solid ${step.color}25`,
-  }}
-/>
+                      className="absolute inset-[9px] rounded-full"
+                      style={{
+                        border: `1px solid ${step.color}25`,
+                      }}
+                    />
 
                     {/* Icon */}
 
                     <Icon
-  size={53}
-  strokeWidth={1.45}
-  className="relative transition-transform duration-500 group-hover:scale-110"
-  style={{
-    color: step.color,
-  }}
-/>
+                      size={43}
+                      strokeWidth={1.45}
+                      className="relative transition-transform duration-500 group-hover:scale-110"
+                      style={{
+                        color: step.color,
+                      }}
+                    />
                   </div>
 
                   {/* =========================================
@@ -353,10 +359,12 @@ style={{
                   ========================================== */}
 
                   {index < processSteps.length - 1 && (
-                    <div className="absolute right-[-17px] top-[86px] z-40 hidden h-8 w-8 items-center justify-center rounded-full text-white shadow-lg xl:flex"
-style={{
-  background: `linear-gradient(135deg, ${step.color}, ${step.color}CC)`,
-}}>
+                    <div
+                      className="absolute right-[-17px] top-[86px] z-40 hidden h-8 w-8 items-center justify-center rounded-full text-white shadow-lg xl:flex"
+                      style={{
+                        background: `linear-gradient(135deg, ${step.color}, ${step.color}CC)`,
+                      }}
+                    >
                       <ChevronRight size={17} strokeWidth={2.5} />
                     </div>
                   )}
@@ -417,7 +425,7 @@ style={{
             PREMIUM QUALITY FEATURES STRIP
         ==================================================== */}
 
-        <div className="relative mt-10">
+        <div className="relative mt-8">
           {/* Background Glow */}
 
           <div className="pointer-events-none absolute -inset-4 rounded-[35px] bg-sky-100/30 blur-2xl" />
@@ -426,7 +434,7 @@ style={{
               WHITE FEATURE CONTAINER
           ================================================== */}
 
-          <div className="relative overflow-hidden rounded-[28px] border border-white bg-white px-5 py-7 shadow-[0_12px_40px_rgba(15,23,42,0.07)] md:px-8 lg:px-10 lg:py-8">
+          <div className="relative overflow-hidden rounded-[28px] border border-white bg-white px-5 py-6 shadow-[0_12px_40px_rgba(15,23,42,0.07)] md:px-8 lg:px-10 lg:py-8">
             {/* Top Highlight */}
 
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
@@ -462,21 +470,21 @@ style={{
                       {/* Glow */}
 
                       <div
-  className="absolute inset-1 rounded-full opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
-  style={{
-    background: `${feature.color}25`,
-  }}
-/>
+                        className="absolute inset-1 rounded-full opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
+                        style={{
+                          background: `${feature.color}25`,
+                        }}
+                      />
                       {/* Icon */}
 
                       <Icon
-  size={49}
-  strokeWidth={1.5}
-  className="relative transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
-  style={{
-    color: feature.color,
-  }}
-/>
+                        size={49}
+                        strokeWidth={1.5}
+                        className="relative transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
+                        style={{
+                          color: feature.color,
+                        }}
+                      />
                     </div>
 
                     {/* =========================================

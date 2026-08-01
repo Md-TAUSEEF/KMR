@@ -9,8 +9,11 @@ import {
   Award,
   CheckCircle2,
 } from "lucide-react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function HeroLeft({ currentSlide, activeSlide, heroSlides }) {
+
+  const navigate=useNavigate();
   return (
     <div
       className="
@@ -321,6 +324,8 @@ xl:text-[56px]
               sm:py-3.5
               sm:text-sm
             "
+
+             onClick={()=>navigate("/products")}
           >
             Explore Products
             <ArrowRight
@@ -336,7 +341,7 @@ xl:text-[56px]
 
           {/* SECONDARY CTA */}
 
-          <button
+          <button 
             type="button"
             className="
               group
@@ -364,6 +369,8 @@ xl:text-[56px]
               sm:py-3.5
               sm:text-sm
             "
+
+            onClick={()=>navigate("/contact")}
           >
             <Phone
               size={16}

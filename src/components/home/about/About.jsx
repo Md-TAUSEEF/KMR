@@ -20,6 +20,7 @@ import {
 // FACTORY VIDEO
 // ============================================================
 
+import { useNavigate } from "react-router-dom";
 import factoryVideo from "../../../assets/hero/factory.mp4";
 
 // ============================================================
@@ -30,6 +31,9 @@ export default function About() {
   // ==========================================================
   // ABOUT FEATURES
   // ==========================================================
+
+  const navigate=useNavigate();
+
 
   const aboutFeatures = [
     {
@@ -442,7 +446,8 @@ export default function About() {
                     EXPLORE PRODUCTS
                 ================================================== */}
 
-              <button className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(14,165,233,0.35)]">
+              <button className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(14,165,233,0.35)]"  onClick={() => navigate("/products")}>
+               
                 Explore Products
                 <ArrowRight
                   size={19}

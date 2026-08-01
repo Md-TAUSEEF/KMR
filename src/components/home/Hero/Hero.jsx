@@ -696,7 +696,7 @@ blur-[100px]
           </div>
 
           <div>
-            <p className="text-xl font-black leading-none text-white">20+</p>
+            <p className="text-xl font-black leading-none text-white">5+</p>
 
             <p
               className="
