@@ -51,7 +51,7 @@ const ManufacturingFactory = () => {
   const stats = [
     {
       icon: Factory,
-      value: "5+",
+      value: "10+",
       label: "Years",
       subLabel: "Experience",
       iconColor: "text-sky-500",
@@ -275,7 +275,7 @@ const ManufacturingFactory = () => {
 
                 <div>
                   <p className="text-2xl font-black text-[#102944]">
-                    5+
+                    10+
                   </p>
 
                   <p className="text-[9px] font-bold uppercase tracking-wider text-slate-500">

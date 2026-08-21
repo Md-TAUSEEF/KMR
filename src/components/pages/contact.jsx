@@ -170,7 +170,7 @@ ${formData.name}`
     },
     {
       icon: FlaskConical,
-      number: "500+",
+      number: "300+",
       label: "Products Delivered",
     },
     {

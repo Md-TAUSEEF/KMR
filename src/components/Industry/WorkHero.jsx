@@ -394,7 +394,7 @@ const WorkHero = ({ industry, work }) => {
           color: work.color,
         }}
       >
-        500+
+        300+
       </h2>
 
       <p className="mt-3 text-slate-300">

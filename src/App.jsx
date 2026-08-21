@@ -8,6 +8,10 @@ import Home from "./components/home/Home";
 import ClientsPage from "./components/pages/ClientsPage";
 import AboutPage from "./components/home/about/AboutPage";
 import Services from "./components/pages/Services";
+import OurTeamPage from "./components/pages/OurTeamPage";
+import AchievementsPage from "./components/home/about/achievements"
+import AwardsRecognitionPage from "./components/home/about/AwardsRecognitionPage"
+import VisionMissionPage from "./components/pages/VisionMissionPage"
 // Product Pages
 import Products from "./components/home/product/Products";
 import ProductDetails from "./components/home/product/ProductDetails";
@@ -20,6 +24,8 @@ import CertificatesPreview from "./components/home/certificates/CertificatesPrev
 import Gallery from "./components/Gallery/Gallery";
 import Contact from "./components/pages/contact";
 import Footer from "./components/pages/Footer";
+
+
 
 function App() {
   return (
@@ -36,6 +42,10 @@ function App() {
         <Route path="/certificate" element={<CertificatesPreview/>}/>
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/team" element={<OurTeamPage />} />
+        <Route path="/achievements" element={<AchievementsPage/>}/>
+        <Route path="/aword" element={<AwardsRecognitionPage/>}/>
+        <Route path="/vision" element={<VisionMissionPage/>}/>
 
         {/* Products */}
         <Route path="/products" element={<Products />} />
@@ -44,6 +54,9 @@ function App() {
           path="/products/:categorySlug/:productSlug"
           element={<ProductDetails />}
         />
+
+        {/*About*/}
+        <Route path="/about" element={<AboutPage/>}/>
 
         {/* Applications */}
         <Route path="/applications" element={<Applications />} />
