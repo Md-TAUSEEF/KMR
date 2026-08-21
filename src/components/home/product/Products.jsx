@@ -375,7 +375,7 @@ group-hover:scale-105
                   <div className="mt-1 flex items-center justify-center gap-2">
                     <span className="hidden text-sky-500 md:block">❮</span>
 
-                    <p className="text-3xl font-black text-sky-500">500+</p>
+                    <p className="text-3xl font-black text-sky-500">300+</p>
 
                     <span className="hidden text-sky-500 md:block">❯</span>
                   </div>

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -108,7 +107,6 @@ const Footer = () => {
               className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-black text-sky-700 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:px-5 sm:py-3 sm:text-sm"
             >
               Contact Us
-
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-600 text-white transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRight size={14} />
               </span>
@@ -123,27 +121,37 @@ const Footer = () => {
 
       <div className="relative mx-auto max-w-7xl px-5 py-6 sm:px-6 lg:px-8">
         <div className="grid gap-7 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-
           {/* ========================================================
               BRAND
           ======================================================== */}
 
           <div>
-            <Link to="/" className="group inline-flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-sky-900/30 transition-transform duration-300 group-hover:scale-105">
-                <Building2 size={19} strokeWidth={2.5} />
-              </div>
+            <Link
+  to="/"
+  className="group inline-flex items-center gap-3"
+>
+  {/* Company Logo */}
 
-              <div>
-                <div className="text-base font-black tracking-tight sm:text-lg">
-                  KMR <span className="text-sky-400">CONCHEM</span>
-                </div>
+  <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-lg shadow-black/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-sky-900/30">
+    <img
+      src="/kmr-logo.webp"
+      alt="KMR Conchem Pvt. Ltd."
+      className="h-full w-full object-contain p-1.5 transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
 
-                <div className="text-[7px] font-bold uppercase tracking-[0.25em] text-slate-500">
-                  Construction Chemicals
-                </div>
-              </div>
-            </Link>
+  {/* Company Name */}
+
+  <div>
+    <div className="text-base font-black tracking-tight sm:text-lg">
+      KMR <span className="text-sky-400">CONCHEM</span>
+    </div>
+
+    <div className="text-[7px] font-bold uppercase tracking-[0.25em] text-slate-500">
+      Construction Chemicals
+    </div>
+  </div>
+</Link>
 
             <p className="mt-3 max-w-sm text-[11px] leading-5 text-slate-400 sm:text-xs">
               Advanced construction chemical solutions designed for stronger,
@@ -156,7 +164,6 @@ const Footer = () => {
             ====================================================== */}
 
             <div className="mt-3 flex items-center gap-2">
-
               {/* Facebook */}
 
               <a
@@ -230,7 +237,6 @@ const Footer = () => {
                   <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-6.41L6.45 22H3.33l7.24-8.28L2.8 2h6.4l4.43 5.86L18.9 2Zm-1.1 17.85h1.73L8.28 4.02H6.42L17.8 19.85Z" />
                 </svg>
               </a>
-
             </div>
           </div>
 
@@ -268,9 +274,7 @@ const Footer = () => {
 
                     <span
                       className={`transition-transform duration-300 ${
-                        active
-                          ? "translate-x-1"
-                          : "group-hover:translate-x-1"
+                        active ? "translate-x-1" : "group-hover:translate-x-1"
                       }`}
                     >
                       {name}
@@ -327,7 +331,6 @@ const Footer = () => {
             </h3>
 
             <div className="mt-3 space-y-2.5">
-
               {/* ==================================================
                   ADDRESS
               ================================================== */}
@@ -397,7 +400,6 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -409,13 +411,10 @@ const Footer = () => {
 
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-
           <p className="text-center text-[10px] text-slate-500 sm:text-left">
             © {currentYear}{" "}
-            <span className="font-semibold text-slate-300">
-              KMR Conchem
-            </span>
-            . All rights reserved.
+            <span className="font-semibold text-slate-300">KMR Conchem</span>.
+            All rights reserved.
           </p>
 
           <div className="flex items-center justify-center gap-3 text-[10px] text-slate-500">
@@ -428,10 +427,7 @@ const Footer = () => {
 
             <span className="h-3 w-px bg-white/10" />
 
-            <Link
-              to="/terms"
-              className="transition-colors hover:text-sky-400"
-            >
+            <Link to="/terms" className="transition-colors hover:text-sky-400">
               Terms & Conditions
             </Link>
           </div>
@@ -439,7 +435,6 @@ const Footer = () => {
           <p className="text-center text-[10px] text-slate-600 sm:text-right">
             Built with Chemistry & Innovation
           </p>
-
         </div>
       </div>
     </footer>

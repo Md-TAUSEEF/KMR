@@ -233,7 +233,7 @@ const IndustryHero = ({ industry }) => {
                   color: industry.accent,
                 }}
               >
-                500+
+                300+
               </h2>
 
               <p className="mt-2 text-sm text-slate-300">Successful Projects</p>

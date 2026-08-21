@@ -300,7 +300,7 @@ const IndustryBenefits = ({ industry }) => {
                   color: industry.accent,
                 }}
               >
-                500+
+                300+
               </h2>
 
               <p className="mt-3 text-slate-600">Projects Delivered</p>
