@@ -1,363 +1,546 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Handshake,
-} from "lucide-react";
+
+import { ArrowRight, CheckCircle2, Handshake, Sparkles } from "lucide-react";
 
 import { clientData } from "./clientData";
 
-const Clients = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(6);
+// ============================================================
+// SPLIT CLIENTS INTO TWO ROWS
+// ============================================================
 
-  // ============================================================
-  // RESPONSIVE VISIBLE CARDS
-  // ============================================================
+const clientsRow1 = clientData.filter((_, index) => index % 2 === 0);
+const clientsRow2 = clientData.filter((_, index) => index % 2 !== 0);
 
-  useEffect(() => {
-    const updateVisibleCount = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCount(1);
-      } else if (window.innerWidth < 768) {
-        setVisibleCount(2);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCount(3);
-      } else if (window.innerWidth < 1280) {
-        setVisibleCount(4);
-      } else {
-        // DESKTOP = 6 LOGOS
-        setVisibleCount(6);
-      }
-    };
+// ============================================================
+// CLIENT CARD
+// ============================================================
 
-    updateVisibleCount();
+function ClientCard({ client }) {
+  return (
+    <div
+      className="
+        group relative flex h-[92px] w-[190px] shrink-0
+        items-center justify-center
+        overflow-hidden rounded-2xl
+        border border-slate-200
+        bg-white
+        px-5
+        shadow-[0_4px_18px_rgba(15,23,42,0.025)]
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:border-sky-300
+        hover:shadow-[0_14px_35px_rgba(14,165,233,0.10)]
+        sm:h-[98px]
+        sm:w-[215px]
+        lg:h-[105px]
+        lg:w-[235px]
+      "
+    >
+      {/* ======================================================
+          CARD GLOW
+      ====================================================== */}
 
-    window.addEventListener("resize", updateVisibleCount);
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          -right-12
+          -top-12
+          h-28
+          w-28
+          rounded-full
+          bg-sky-100/60
+          blur-3xl
+          transition-all
+          duration-500
+          group-hover:bg-sky-200/80
+        "
+      />
 
-    return () => {
-      window.removeEventListener(
-        "resize",
-        updateVisibleCount
-      );
-    };
-  }, []);
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          -bottom-12
+          -left-12
+          h-24
+          w-24
+          rounded-full
+          bg-blue-100/50
+          blur-3xl
+        "
+      />
 
-  // ============================================================
-  // MAX SLIDER INDEX
-  // ============================================================
+      {/* ======================================================
+          LOGO
+      ====================================================== */}
 
-  const maxIndex = Math.max(
-    0,
-    clientData.length - visibleCount
+      <img
+        src={client.logo}
+        alt={`${client.name} logo`}
+        loading="lazy"
+        draggable="false"
+        className="
+          relative
+          z-10
+          max-h-[54px]
+          max-w-[145px]
+          object-contain
+          opacity-90
+          transition-all
+          duration-500
+          group-hover:scale-105
+          group-hover:opacity-100
+          sm:max-h-[60px]
+          sm:max-w-[165px]
+          lg:max-h-[64px]
+          lg:max-w-[180px]
+        "
+      />
+    </div>
   );
+}
 
-  // ============================================================
-  // KEEP INDEX SAFE AFTER RESIZE
-  // ============================================================
+// ============================================================
+// MARQUEE ROW
+// ============================================================
 
-  useEffect(() => {
-    setCurrentIndex((prev) =>
-      Math.min(prev, maxIndex)
-    );
-  }, [maxIndex]);
+function MarqueeRow({ clients, direction = "left" }) {
+  /*
+    Duplicate the complete row multiple times.
 
-  // ============================================================
-  // AUTO SLIDE
-  // EVERY 5 SECONDS
-  // ============================================================
+    This creates a seamless continuous marquee without
+    a visible jump when the animation restarts.
+  */
 
-  useEffect(() => {
-    if (
-      isPaused ||
-      clientData.length <= visibleCount
-    ) {
-      return;
-    }
+  const items = [...clients, ...clients, ...clients];
 
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => {
-        if (direction === 1) {
-          if (prev >= maxIndex) {
-            setDirection(-1);
-            return Math.max(0, prev - 1);
+  return (
+    <div className="relative overflow-hidden">
+      {/* ======================================================
+          LEFT FADE
+      ====================================================== */}
+
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          left-0
+          top-0
+          z-20
+          h-full
+          w-14
+          bg-gradient-to-r
+          from-white
+          to-transparent
+          sm:w-20
+          lg:w-28
+        "
+      />
+
+      {/* ======================================================
+          RIGHT FADE
+      ====================================================== */}
+
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          top-0
+          z-20
+          h-full
+          w-14
+          bg-gradient-to-l
+          from-white
+          to-transparent
+          sm:w-20
+          lg:w-28
+        "
+      />
+
+      {/* ======================================================
+          MARQUEE TRACK
+      ====================================================== */}
+
+      <div
+        className={`
+          clients-marquee-track
+          flex
+          w-max
+          items-center
+          gap-3
+          sm:gap-4
+          lg:gap-5
+          ${
+            direction === "right"
+              ? "clients-marquee-right"
+              : "clients-marquee-left"
           }
+        `}
+      >
+        {items.map((client, index) => (
+          <ClientCard
+            key={`${client.id}-${index}`}
+            client={client}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-          return prev + 1;
-        }
+// ============================================================
+// MAIN COMPONENT
+// ============================================================
 
-        if (prev <= 0) {
-          setDirection(1);
-          return Math.min(maxIndex, prev + 1);
-        }
-
-        return prev - 1;
-      });
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [
-    direction,
-    maxIndex,
-    visibleCount,
-    isPaused,
-  ]);
-
-  // ============================================================
-  // NEXT
-  // ============================================================
-
-  const nextSlide = () => {
-    setDirection(1);
-
-    setCurrentIndex((prev) => {
-      if (prev >= maxIndex) {
-        return 0;
-      }
-
-      return prev + 1;
-    });
-  };
-
-  // ============================================================
-  // PREVIOUS
-  // ============================================================
-
-  const previousSlide = () => {
-    setDirection(-1);
-
-    setCurrentIndex((prev) => {
-      if (prev <= 0) {
-        return maxIndex;
-      }
-
-      return prev - 1;
-    });
-  };
-
-  // ============================================================
-  // CARD WIDTH
-  // ============================================================
-
-  const cardWidth = `${100 / visibleCount}%`;
-
+const Clients = () => {
   return (
     <section
       id="clients"
-      className="relative overflow-hidden bg-white py-16 sm:py-20"
+      className="
+        relative
+        overflow-hidden
+        bg-white
+        py-20
+        sm:py-24
+        lg:py-28
+      "
     >
-      {/* ========================================================
-          BACKGROUND GLOW
-      ======================================================== */}
+      {/* ======================================================
+          BACKGROUND
+      ====================================================== */}
 
-      <div className="pointer-events-none absolute inset-0">
-
-        <div className="absolute -left-40 top-0 h-[350px] w-[350px] rounded-full bg-sky-100/60 blur-[120px]" />
-
-        <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-blue-100/50 blur-[130px]" />
-
-      </div>
-
-      {/* ========================================================
-          CONTAINER
-      ======================================================== */}
-
-      <div className="relative mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-14 xl:px-20">
-
-        {/* ======================================================
-            HEADER
-        ====================================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="mx-auto mb-10 max-w-3xl text-center"
-        >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-4 py-2 shadow-sm">
-            <Handshake
-              size={17}
-              className="text-sky-600"
-            />
-
-            <span className="text-xs font-bold uppercase tracking-[2px] text-sky-700">
-              Our Clients
-            </span>
-          </div>
-
-          <h2 className="text-3xl font-black leading-tight text-slate-900 md:text-5xl">
-            Trusted By{" "}
-            <span className="text-sky-600">
-              Leading Companies
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            We are proud to serve a growing network of
-            construction companies, infrastructure developers,
-            builders and industry leaders.
-          </p>
-        </motion.div>
-
-        {/* ======================================================
-            SLIDER AREA
-        ====================================================== */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+      >
+        {/* Center glow */}
 
         <div
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+          className="
+            absolute
+            left-1/2
+            top-[-170px]
+            h-[430px]
+            w-[760px]
+            -translate-x-1/2
+            rounded-full
+            bg-sky-500/[0.035]
+            blur-3xl
+          "
+        />
 
-          {/* ====================================================
-              LEFT ARROW
-              OUTSIDE CARDS
-          ==================================================== */}
+        {/* Subtle grid */}
 
-          <button
-            type="button"
-            onClick={previousSlide}
-            aria-label="Previous clients"
-            className="absolute left-[-8px] top-1/2 z-30 hidden h-11 w-11 -translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-[0_8px_25px_rgba(15,23,42,0.12)] transition-all duration-300 hover:border-sky-400 hover:bg-sky-600 hover:text-white hover:shadow-[0_12px_30px_rgba(14,165,233,0.25)] xl:flex"
-          >
-            <ChevronLeft size={21} />
-          </button>
+        <div
+          className="absolute inset-0 opacity-[0.22]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #EEF1F6 1px, transparent 1px), linear-gradient(to bottom, #EEF1F6 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage:
+              "radial-gradient(ellipse 70% 55% at 50% 15%, black 15%, transparent 100%)",
+          }}
+        />
 
-          {/* ====================================================
-              RIGHT ARROW
-              OUTSIDE CARDS
-          ==================================================== */}
+        {/* Side glow */}
 
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Next clients"
-            className="absolute right-[-8px] top-1/2 z-30 hidden h-11 w-11 translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-[0_8px_25px_rgba(15,23,42,0.12)] transition-all duration-300 hover:border-sky-400 hover:bg-sky-600 hover:text-white hover:shadow-[0_12px_30px_rgba(14,165,233,0.25)] xl:flex"
-          >
-            <ChevronRight size={21} />
-          </button>
+        <div
+          className="
+            absolute
+            -left-40
+            top-1/2
+            h-[300px]
+            w-[300px]
+            -translate-y-1/2
+            rounded-full
+            bg-sky-100/40
+            blur-[110px]
+          "
+        />
 
-          {/* ====================================================
-              VIEWPORT
-          ==================================================== */}
-
-          <div className="overflow-hidden px-1 py-4">
-
-            <motion.div
-              className="flex"
-              animate={{
-                x: `-${currentIndex * (100 / visibleCount)}%`,
-              }}
-              transition={{
-                duration: 0.9,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              {clientData.map((client) => (
-                <div
-                  key={client.id}
-                  className="shrink-0 px-2"
-                  style={{
-                    width: cardWidth,
-                  }}
-                >
-                  {/* ==================================================
-                      CLIENT LOGO CARD
-                  ================================================== */}
-
-                  <motion.div
-                    whileHover={{
-                      y: -5,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="group relative flex h-[155px] items-center justify-center overflow-hidden rounded-[22px] border border-slate-200 bg-white px-5 py-5 shadow-[0_8px_28px_rgba(15,23,42,0.055)] transition-all duration-300 hover:border-sky-300 hover:shadow-[0_15px_35px_rgba(14,165,233,0.12)]"
-                  >
-
-                    {/* Background Glow */}
-
-                    <div className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-sky-100/60 blur-3xl transition-all duration-500 group-hover:bg-sky-200" />
-
-                    <div className="pointer-events-none absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-blue-100/50 blur-3xl" />
-
-                    {/* ==================================================
-                        ONLY LOGO
-                    ================================================== */}
-
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="relative max-h-[80px] w-auto max-w-[165px] object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-
-                  </motion.div>
-                </div>
-              ))}
-            </motion.div>
-
-          </div>
-
-          {/* ====================================================
-              MOBILE / TABLET BUTTONS
-          ==================================================== */}
-
-          <div className="mt-4 flex justify-center gap-3 xl:hidden">
-
-            <button
-              type="button"
-              onClick={previousSlide}
-              aria-label="Previous clients"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-md transition-all hover:border-sky-400 hover:bg-sky-600 hover:text-white"
-            >
-              <ChevronLeft size={18} />
-            </button>
-
-            <button
-              type="button"
-              onClick={nextSlide}
-              aria-label="Next clients"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-md transition-all hover:border-sky-400 hover:bg-sky-600 hover:text-white"
-            >
-              <ChevronRight size={18} />
-            </button>
-
-          </div>
-
-        </div>
-
-        {/* ======================================================
-            TRUST TEXT
-        ====================================================== */}
-
-        <div className="mt-7 text-center">
-          <p className="text-sm font-semibold text-slate-500">
-            Trusted by{" "}
-            <span className="font-black text-sky-700">
-              35+
-            </span>{" "}
-            companies & organizations
-          </p>
-        </div>
-
+        <div
+          className="
+            absolute
+            -right-40
+            top-1/2
+            h-[300px]
+            w-[300px]
+            -translate-y-1/2
+            rounded-full
+            bg-blue-100/40
+            blur-[110px]
+          "
+        />
       </div>
+
+      <div className="relative">
+        {/* ====================================================
+            HEADER
+        ==================================================== */}
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            {/* Eyebrow */}
+
+            <div className="mb-5 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-slate-900" />
+
+              <div className="flex items-center gap-2">
+                <Handshake
+                  size={13}
+                  className="text-sky-600"
+                />
+
+                <span
+                  className="
+                    text-[10px]
+                    font-bold
+                    uppercase
+                    tracking-[0.28em]
+                    text-slate-500
+                  "
+                >
+                  Our Clients
+                </span>
+              </div>
+
+              <span className="h-px w-8 bg-slate-900" />
+            </div>
+
+            {/* Heading */}
+
+            <h2
+              className="
+                text-3xl
+                font-semibold
+                leading-[1.08]
+                tracking-[-0.045em]
+                text-slate-950
+                sm:text-4xl
+                lg:text-[3.15rem]
+              "
+            >
+              Trusted by industry leaders.
+              <span className="block text-slate-400">
+                Built on lasting partnerships.
+              </span>
+            </h2>
+
+            {/* Description */}
+
+            <p
+              className="
+                mx-auto
+                mt-5
+                max-w-2xl
+                text-sm
+                leading-7
+                text-slate-500
+                sm:text-[15px]
+              "
+            >
+              We are proud to work with construction companies,
+              infrastructure developers, builders and organizations
+              across diverse projects and industries.
+            </p>
+          </div>
+        </div>
+
+        {/* ====================================================
+            CLIENT MARQUEE
+        ==================================================== */}
+
+        <div className="mt-12 space-y-3 sm:mt-14 sm:space-y-4">
+          {/* ==================================================
+              ROW 1
+              LEFT → RIGHT
+          ================================================== */}
+
+          <MarqueeRow
+            clients={clientsRow1}
+            direction="right"
+          />
+
+          {/* ==================================================
+              ROW 2
+              RIGHT → LEFT
+          ================================================== */}
+
+          <MarqueeRow
+            clients={clientsRow2}
+            direction="left"
+          />
+        </div>
+
+        {/* ====================================================
+            TRUST STRIP
+        ==================================================== */}
+
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="
+              mx-auto
+              mt-9
+              flex
+              flex-col
+              items-center
+              justify-between
+              gap-5
+              rounded-2xl
+              border
+              border-slate-200
+              bg-slate-50/80
+              px-5
+              py-5
+              sm:flex-row
+              sm:px-7
+            "
+          >
+            {/* Left */}
+
+            <div className="flex items-center gap-3">
+              <span
+                className="
+                  flex
+                  h-9
+                  w-9
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-emerald-500/10
+                "
+              >
+                <CheckCircle2
+                  size={16}
+                  className="text-emerald-500"
+                />
+              </span>
+
+              <div>
+                <p className="text-[11px] font-semibold text-slate-800">
+                  Trusted partnerships
+                </p>
+
+                <p className="mt-0.5 text-[9.5px] text-slate-400">
+                  Construction • Infrastructure • Real Estate •
+                  Industrial Projects
+                </p>
+              </div>
+            </div>
+
+            {/* Right */}
+
+            <a
+              href="#contact"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-2
+                text-[10px]
+                font-semibold
+                text-slate-700
+                transition-colors
+                hover:text-slate-950
+              "
+            >
+              Work With Us
+
+              <ArrowRight
+                size={13}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
+            </a>
+          </div>
+
+          {/* ==================================================
+              SUPPORTING TEXT
+          ================================================== */}
+
+          <div className="mt-5 flex items-center justify-center gap-2 text-center">
+            <Sparkles
+              size={11}
+              className="shrink-0 text-sky-400"
+            />
+
+            <p className="text-[8.5px] leading-5 text-slate-400">
+              A growing network of clients and project partners
+              across construction and infrastructure.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ======================================================
+          MARQUEE ANIMATION
+      ====================================================== */}
+
+      <style>{`
+        .clients-marquee-track {
+          will-change: transform;
+        }
+
+        .clients-marquee-left {
+          animation: clientsMarqueeLeft 42s linear infinite;
+        }
+
+        .clients-marquee-right {
+          animation: clientsMarqueeRight 42s linear infinite;
+        }
+
+        .clients-marquee-track:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes clientsMarqueeLeft {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-33.333333%);
+          }
+        }
+
+        @keyframes clientsMarqueeRight {
+          from {
+            transform: translateX(-33.333333%);
+          }
+
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .clients-marquee-left {
+            animation-duration: 32s;
+          }
+
+          .clients-marquee-right {
+            animation-duration: 32s;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .clients-marquee-left,
+          .clients-marquee-right {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
 export default Clients;
-

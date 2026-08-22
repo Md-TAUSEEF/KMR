@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 // Navbar
 import Navbar from "./components/Navbar/Navbar";
-
+import NotFound from "./components/pages/NotFound";
 // Pages
 import Home from "./components/home/Home";
 import ClientsPage from "./components/pages/ClientsPage";
@@ -46,6 +46,7 @@ function App() {
         <Route path="/achievements" element={<AchievementsPage/>}/>
         <Route path="/aword" element={<AwardsRecognitionPage/>}/>
         <Route path="/vision" element={<VisionMissionPage/>}/>
+        
 
         {/* Products */}
         <Route path="/products" element={<Products />} />
@@ -70,7 +71,8 @@ function App() {
         />
 
         {/* 404 Page */}
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+     <Route path="*" element={<NotFound />} />
+        
       </Routes>
 
       <Footer/>
