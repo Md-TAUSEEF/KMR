@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
 import { Award, ShieldCheck, BadgeCheck } from "lucide-react";
 
-
+/* ============================================================
+   CERTIFICATION DATA
+============================================================ */
 
 const certificationLogos = [
   {
@@ -42,134 +43,297 @@ const certificationLogos = [
   },
 ];
 
+/* ============================================================
+   CERTIFICATION CARD
+============================================================ */
 
-const sliderLogos = [...certificationLogos, ...certificationLogos];
+function CertificationCard({ certification }) {
+  return (
+    <div className="group flex h-[120px] w-[175px] shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 shadow-[0_4px_18px_rgba(15,23,42,0.025)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_rgba(15,23,42,0.08)] sm:h-[132px] sm:w-[195px]">
+      <img
+        src={certification.image}
+        alt={`${certification.name} certification`}
+        loading="lazy"
+        className="max-h-[78px] max-w-[135px] object-contain opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 sm:max-h-[88px] sm:max-w-[150px]"
+      />
+    </div>
+  );
+}
+
+/* ============================================================
+   MARQUEE ROW
+============================================================ */
+
+function MarqueeRow({
+  certifications,
+  direction = "left",
+}) {
+  /*
+    Duplicate the complete set multiple times so the
+    marquee can loop smoothly without an obvious jump.
+  */
+
+  const items = [
+    ...certifications,
+    ...certifications,
+    ...certifications,
+  ];
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* LEFT FADE */}
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-0 z-20 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-24 lg:w-32"
+      />
+
+      {/* RIGHT FADE */}
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-0 z-20 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-24 lg:w-32"
+      />
+
+      {/* TRACK */}
+
+      <div
+        className={`certification-marquee-track flex w-max items-center gap-3 sm:gap-4 ${
+          direction === "right"
+            ? "certification-marquee-right"
+            : "certification-marquee-left"
+        }`}
+      >
+        {items.map((certification, index) => (
+          <CertificationCard
+            key={`${certification.id}-${index}`}
+            certification={certification}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   MAIN COMPONENT
+============================================================ */
 
 const CertificationLogos = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-14 sm:py-16">
+    <section
+      id="certifications"
+      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+    >
       {/* ======================================================
           BACKGROUND
       ====================================================== */}
 
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-64 w-[600px] -translate-x-1/2 rounded-full bg-sky-100/40 blur-[100px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+      >
+        {/* CENTER GLOW */}
 
-        <div className="absolute -left-32 bottom-0 h-56 w-56 rounded-full bg-cyan-100/30 blur-[90px]" />
+        <div className="absolute left-1/2 top-[-160px] h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-sky-500/[0.035] blur-3xl" />
 
-        <div className="absolute -right-32 bottom-0 h-56 w-56 rounded-full bg-blue-100/30 blur-[90px]" />
+        {/* LEFT GLOW */}
+
+        <div className="absolute -left-40 top-[300px] h-[420px] w-[420px] rounded-full bg-cyan-100/40 blur-[120px]" />
+
+        {/* RIGHT GLOW */}
+
+        <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-blue-100/40 blur-[130px]" />
+
+        {/* SUBTLE GRID */}
+
+        <div
+          className="absolute inset-0 opacity-[0.22]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #EEF1F6 1px, transparent 1px), linear-gradient(to bottom, #EEF1F6 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage:
+              "radial-gradient(ellipse 70% 55% at 50% 25%, black 15%, transparent 100%)",
+          }}
+        />
       </div>
 
-      {/* ======================================================
-          HEADER
-      ====================================================== */}
+      <div className="relative">
+        {/* ====================================================
+            HEADER
+        ===================================================== */}
 
-      <div className="relative mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          {/* Badge */}
+        <div className="mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            {/* SECTION LABEL */}
 
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2">
-            <Award size={17} className="text-sky-600" />
+            <div className="mb-5 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-slate-900" />
 
-            <span className="text-xs font-extrabold uppercase tracking-[2px] text-sky-700">
-              Certifications & Standards
-            </span>
-          </div>
+              <div className="flex items-center gap-2">
+                <Award
+                  size={14}
+                  strokeWidth={2}
+                  className="text-sky-600"
+                />
 
-          {/* Heading */}
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500 sm:text-[11px]">
+                  Certifications & Standards
+                </span>
+              </div>
 
-          <h2 className="text-3xl font-black tracking-tight text-[#102944] sm:text-4xl lg:text-5xl">
-            Certified Quality.
-            <span className="ml-2 bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
-              Trusted Performance.
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
-            Our commitment to quality, safety and reliable construction
-            chemical solutions is supported by recognized standards and
-            certifications.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* ======================================================
-          LOGO SLIDER
-      ====================================================== */}
-
-      <div className="relative mt-10">
-        {/* Left Fade */}
-
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-28 lg:w-40" />
-
-        {/* Right Fade */}
-
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-28 lg:w-40" />
-
-        {/* Slider */}
-
-        <motion.div
-          className="flex w-max items-center gap-5"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          whileHover={{
-            animationPlayState: "paused",
-          }}
-        >
-          {sliderLogos.map((logo, index) => (
-            <div
-              key={`${logo.id}-${index}`}
-              className="group flex h-[125px] w-[190px] shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_18px_40px_rgba(14,165,233,0.12)] sm:h-[140px] sm:w-[220px]"
-            >
-              {/* Logo Image */}
-
-              <img
-                src={logo.image}
-                alt={logo.name}
-               className="max-h-[75px] max-w-[150px] object-contain transition-all duration-300 group-hover:scale-105 sm:max-h-[85px] sm:max-w-[170px]"
-              />
+              <span className="h-px w-8 bg-slate-900" />
             </div>
-          ))}
-        </motion.div>
-      </div>
 
-      {/* ======================================================
-          BOTTOM TRUST LINE
-      ====================================================== */}
+            {/* HEADING */}
 
-      <div className="relative mx-auto mt-9 flex max-w-[1450px] items-center justify-center px-4">
-        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5">
-          <ShieldCheck size={17} className="text-sky-600" />
+            <h2 className="text-3xl font-semibold leading-[1.08] tracking-[-0.045em] text-slate-950 sm:text-4xl lg:text-[3.15rem]">
+              Certified quality.
+              <span className="block text-slate-400">
+                Trusted performance.
+              </span>
+            </h2>
 
-          <span className="text-xs font-bold text-slate-500 sm:text-sm">
-            Quality • Safety • Reliability • Performance
-          </span>
+            {/* DESCRIPTION */}
 
-          <BadgeCheck size={17} className="text-emerald-500" />
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-[15px]">
+              Our commitment to quality, safety and reliable construction
+              chemical solutions is supported by recognized standards and
+              certifications.
+            </p>
+          </div>
+        </div>
+
+        {/* ====================================================
+            CERTIFICATION MARQUEE
+        ===================================================== */}
+
+        <div className="mt-12 space-y-3 sm:mt-14 sm:space-y-4">
+          {/* ==================================================
+              ROW 1
+              LEFT → RIGHT
+          ================================================== */}
+
+          <MarqueeRow
+            certifications={certificationLogos}
+            direction="right"
+          />
+
+          {/* ==================================================
+              ROW 2
+              RIGHT → LEFT
+          ================================================== */}
+
+          <MarqueeRow
+            certifications={certificationLogos}
+            direction="left"
+          />
+        </div>
+
+        {/* ====================================================
+            BOTTOM TRUST STRIP
+        ===================================================== */}
+
+        <div className="mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mt-8 max-w-6xl">
+            <div className="flex flex-col items-center justify-between gap-5 rounded-2xl border border-slate-200 bg-slate-50/80 px-5 py-5 sm:flex-row sm:px-7">
+              {/* LEFT */}
+
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/10">
+                  <ShieldCheck
+                    size={16}
+                    className="text-sky-600"
+                  />
+                </span>
+
+                <div>
+                  <p className="text-[11px] font-semibold text-slate-800">
+                    Quality & safety standards
+                  </p>
+
+                  <p className="mt-0.5 text-[9.5px] text-slate-400">
+                    Quality • Safety • Reliability • Performance
+                  </p>
+                </div>
+              </div>
+
+              {/* RIGHT */}
+
+              <div className="flex items-center gap-2">
+                <BadgeCheck
+                  size={14}
+                  className="text-emerald-500"
+                />
+
+                <span className="text-[10px] font-semibold text-slate-600">
+                  Certified Standards
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* ====================================================
+          MARQUEE ANIMATION
+      ===================================================== */}
+
+      <style>{`
+        .certification-marquee-track {
+          will-change: transform;
+        }
+
+        .certification-marquee-left {
+          animation: certificationMarqueeLeft 32s linear infinite;
+        }
+
+        .certification-marquee-right {
+          animation: certificationMarqueeRight 32s linear infinite;
+        }
+
+        .certification-marquee-track:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes certificationMarqueeLeft {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-33.333333%);
+          }
+        }
+
+        @keyframes certificationMarqueeRight {
+          from {
+            transform: translateX(-33.333333%);
+          }
+
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .certification-marquee-left {
+            animation-duration: 26s;
+          }
+
+          .certification-marquee-right {
+            animation-duration: 26s;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .certification-marquee-left,
+          .certification-marquee-right {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 };

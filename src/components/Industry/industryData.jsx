@@ -55,11 +55,11 @@ import admixture3 from "../../assets/products/Admixtures/admixture3.webp";
 import admixture4 from "../../assets/products/Admixtures/admixture4.webp";
 
 
-import Accelerators1 from "../../assets/products/Accelerators/Accelerators1.webp"
-import Accelerators2 from "../../assets/products/Accelerators/Accelerators2.webp"
-import Accelerators3 from "../../assets/products/Accelerators/Accelerators3.webp"
-import Accelerators4 from "../../assets/products/Accelerators/Accelerators4.webp"
-import Accelerators5 from "../../assets/products/Accelerators/Accelerators5.webp"
+import Accelerators1 from "../../assets/products/Accelerators/Accelerator&Shotcrete1.webp"
+import Accelerators2 from "../../assets/products/Accelerators/Accelerator&Shotcrete2.webp"
+import Accelerators3 from "../../assets/products/Accelerators/Accelerator&Shotcrete3.webp"
+import Accelerators4 from "../../assets/products/Accelerators/Accelerator&Shotcrete4.webp"
+import Accelerators5 from "../../assets/products/Accelerators/Accelerator&Shotcrete5.webp"
 
 import WaterProofing1 from "../../assets/products/WaterProofing/WaterProofing1.webp"
 import WaterProofing2 from "../../assets/products/WaterProofing/WaterProofing2.webp"
@@ -73,16 +73,16 @@ import ShutterReleas2 from "../../assets/products/ShutterRelease/ShutterReleas2.
 import ShutterReleas3 from "../../assets/products/ShutterRelease/ShutterReleas3.webp"
 import ShutterReleas4 from "../../assets/products/ShutterRelease/ShutterReleas4.webp"
 
-import CuringCompounds1 from "../../assets/products/CuringCompounds/CuringCompounds1.webp"
-import CuringCompounds2 from "../../assets/products/CuringCompounds/CuringCompounds2.webp"
-import CuringCompounds3 from "../../assets/products/CuringCompounds/CuringCompounds3.webp"
-import CuringCompounds4 from "../../assets/products/CuringCompounds/CuringCompounds5.webp"
+import CuringCompounds1 from "../../assets/products/CuringCompounds/curing1.webp"
+import CuringCompounds2 from "../../assets/products/CuringCompounds/curing2.webp"
+import CuringCompounds3 from "../../assets/products/CuringCompounds/curing3.webp"
+import CuringCompounds4 from "../../assets/products/CuringCompounds/curing4.webp"
 
-import waterReducer1 from "../../assets/products/waterreducer/waterReducer1.webp"
-import waterReducer2 from "../../assets/products/waterreducer/waterReducer2.webp"
-import waterReducer3 from "../../assets/products/waterreducer/waterReducer3.webp"
-import waterReducer4 from "../../assets/products/waterreducer/waterReducer4.webp"
-import waterReducer5 from "../../assets/products/waterreducer/waterReducer5.webp"
+import waterReducer1 from "../../assets/products/waterreducer/water_reducing_plasticisers1.webp"
+import waterReducer2 from "../../assets/products/waterreducer/water_reducing_plasticisers2.webp"
+import waterReducer3 from "../../assets/products/waterreducer/water_reducing_plasticisers3.webp"
+import waterReducer4 from "../../assets/products/waterreducer/water_reducing_plasticisers4.webp"
+import waterReducer5 from "../../assets/products/waterreducer/water_reducing_plasticisers5.webp"
 
 
 import pce1 from "../../assets/products/pce/pce1.webp"
